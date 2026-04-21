@@ -1,0 +1,191 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+];
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <nav
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 100,
+        background: "#fff",
+        borderBottom: "2px solid #000",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "0 24px",
+          height: "70px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        {/* Logo */}
+        <Link href="/" style={{ display: "block", flexShrink: 0 }}>
+          <Image
+            src="/logo-white.png"
+            alt="AutoAscent"
+            width={180}
+            height={45}
+            priority
+            style={{ display: "block" }}
+          />
+        </Link>
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex" style={{ alignItems: "center", gap: "32px" }}>
+          {navLinks.map((link) => (
+            <NavLink key={link.href} href={link.href} label={link.label} />
+          ))}
+          <Link
+            href="/contact"
+            style={{
+              fontFamily: "var(--font-outfit)",
+              fontWeight: 600,
+              fontSize: "14px",
+              color: "#000",
+              textDecoration: "none",
+              background: "#63CF6F",
+              border: "2px solid #000",
+              borderRadius: "8px",
+              padding: "10px 20px",
+              transition: "all 0.2s ease",
+              cursor: "pointer",
+              minHeight: "44px",
+              display: "inline-flex",
+              alignItems: "center",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "4px 4px 0px #000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            Contact Us
+          </Link>
+        </div>
+
+        {/* Hamburger */}
+        <button
+          className="flex md:hidden"
+          onClick={() => setOpen(!open)}
+          style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}
+          aria-label="Toggle menu"
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile dropdown */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{ overflow: "hidden", background: "#fff", borderTop: "2px solid #000" }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", padding: "16px 24px 24px", gap: "4px" }}>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    fontFamily: "var(--font-outfit)",
+                    fontWeight: 600,
+                    fontSize: "16px",
+                    color: "#000",
+                    textDecoration: "none",
+                    padding: "14px 0",
+                    borderBottom: "1px solid #E8E8E8",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                style={{
+                  fontFamily: "var(--font-outfit)",
+                  fontWeight: 600,
+                  fontSize: "16px",
+                  color: "#000",
+                  textDecoration: "none",
+                  background: "#63CF6F",
+                  border: "2px solid #000",
+                  borderRadius: "8px",
+                  padding: "14px 20px",
+                  marginTop: "12px",
+                  textAlign: "center",
+                }}
+              >
+                Contact Us
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+}
+
+function NavLink({ href, label }: { href: string; label: string }) {
+  return (
+    <Link
+      href={href}
+      style={{
+        fontFamily: "var(--font-outfit)",
+        fontWeight: 600,
+        fontSize: "14px",
+        color: "#000",
+        textDecoration: "none",
+        position: "relative",
+        paddingBottom: "4px",
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget.querySelector(".underline-bar") as HTMLElement;
+        if (el) el.style.width = "100%";
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget.querySelector(".underline-bar") as HTMLElement;
+        if (el) el.style.width = "0%";
+      }}
+    >
+      {label}
+      <span
+        className="underline-bar"
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          height: "2px",
+          width: "0%",
+          background: "#63CF6F",
+          transition: "width 0.25s ease",
+          display: "block",
+        }}
+      />
+    </Link>
+  );
+}
