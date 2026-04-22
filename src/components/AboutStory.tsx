@@ -11,7 +11,7 @@ export default function AboutStory() {
       >
         {/* Text */}
         <AnimatedSection>
-          <div>
+          <article>
             <SectionLabel text="OUR STORY" />
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#3D3D3D", fontFamily: "var(--font-jakarta)", maxWidth: "none" }}>
@@ -24,7 +24,7 @@ export default function AboutStory() {
                 Every project we take on starts with a free discovery call where we learn your business before we touch a single Zap. The result is automations that fit how you actually work instead of generic templates.
               </p>
             </div>
-          </div>
+          </article>
         </AnimatedSection>
 
         {/* WorkflowWidget */}

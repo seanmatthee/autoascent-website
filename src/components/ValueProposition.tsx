@@ -24,7 +24,7 @@ const cards = [
 
 export default function ValueProposition() {
   return (
-    <section id="value-prop" style={{ padding: "100px 24px", background: "#F5F5F5" }}>
+    <section id="value-prop" aria-label="Why AutoAscent" style={{ padding: "100px 24px", background: "#F5F5F5" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <div
           style={{

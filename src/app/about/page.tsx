@@ -5,7 +5,19 @@ import AboutStory from "@/components/AboutStory";
 import AboutWhy from "@/components/AboutWhy";
 
 export const metadata: Metadata = {
-  title: "About Us | AutoAscent",
+  title: "About Us — Zapier Automation Specialists | AutoAscent",
+  description:
+    "AutoAscent specialises exclusively in Zapier automation for US small businesses. Learn about our approach: free discovery call, custom workflow builds, and reliable automations that actually work.",
+  alternates: {
+    canonical: "https://auto-ascent.us/about",
+  },
+  openGraph: {
+    title: "About AutoAscent — Zapier Automation Specialists",
+    description:
+      "We specialise exclusively in Zapier. Deep expertise in connecting your tech stack and making it run itself.",
+    url: "https://auto-ascent.us/about",
+    images: [{ url: "/og", width: 1200, height: 630 }],
+  },
 };
 
 export default function AboutPage() {

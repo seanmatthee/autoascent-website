@@ -60,9 +60,11 @@ export default function Footer() {
           </h4>
           <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
             {[
-              { label: "Home", href: "/" },
-              { label: "About", href: "/about" },
-              { label: "Contact Us", href: "/contact" },
+              { label: "Home",             href: "/" },
+              { label: "Services",         href: "/#services" },
+              { label: "About Us",         href: "/about" },
+              { label: "Contact Us",       href: "/contact" },
+              { label: "Book a Free Call", href: "/contact" },
             ].map((link) => (
               <li key={link.href}>
                 <Link
@@ -92,11 +94,13 @@ export default function Footer() {
           >
             Contact
           </h4>
-          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
-            <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>seanmatthee@auto-ascent.us</li>
-            <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Centurion, South Africa</li>
-            <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Serving US clients remotely</li>
-          </ul>
+          <address style={{ fontStyle: "normal" }}>
+            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
+              <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>seanmatthee@auto-ascent.us</li>
+              <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Centurion, South Africa</li>
+              <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Serving US clients remotely</li>
+            </ul>
+          </address>
         </div>
       </div>
 

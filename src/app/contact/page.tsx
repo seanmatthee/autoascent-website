@@ -1,8 +1,25 @@
+import type { Metadata } from "next";
 import { Mail, MapPin, Clock } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
 import AnimatedLogo from "@/components/AnimatedLogo";
+
+export const metadata: Metadata = {
+  title: "Book a Free Discovery Call | AutoAscent",
+  description:
+    "Book a free 30-minute Zapier automation discovery call with AutoAscent. Tell us about your business and we'll show you exactly what we'd automate. US small businesses welcome.",
+  alternates: {
+    canonical: "https://auto-ascent.us/contact",
+  },
+  openGraph: {
+    title: "Book a Free Discovery Call | AutoAscent",
+    description:
+      "Free 30-minute call. Tell us your biggest manual time-waster and we'll map out exactly how to automate it.",
+    url: "https://auto-ascent.us/contact",
+    images: [{ url: "/og", width: 1200, height: 630 }],
+  },
+};
 
 const contactItems = [
   {

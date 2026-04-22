@@ -30,7 +30,7 @@ export default function HeroSection() {
         <motion.div {...fade(0)} style={{ display: "flex", justifyContent: "center", marginBottom: "12px" }}>
           <Image
             src="/logo-white.png"
-            alt="AutoAscent"
+            alt="AutoAscent — Zapier Automation Service"
             width={140}
             height={35}
             priority
@@ -63,13 +63,27 @@ export default function HeroSection() {
             lineHeight: 1.1,
             letterSpacing: "-0.025em",
             color: "#000",
-            marginBottom: "24px",
+            marginBottom: "8px",
           }}
         >
-          Automate Smarter.
+          Zapier Automation for
           <br />
-          Scale Faster.
+          US Small Businesses
         </motion.h1>
+
+        <motion.p
+          {...fade(0.20)}
+          style={{
+            fontFamily: "var(--font-outfit)",
+            fontWeight: 700,
+            fontSize: "clamp(18px, 3vw, 28px)",
+            color: "#3D3D3D",
+            letterSpacing: "-0.01em",
+            margin: "8px 0 24px",
+          }}
+        >
+          Automate Smarter. Scale Faster.
+        </motion.p>
 
         <motion.p
           {...fade(0.24)}
@@ -123,6 +137,23 @@ export default function HeroSection() {
             </span>
           ))}
         </motion.div>
+
+        {/* SEO context paragraph — visible but secondary */}
+        <motion.p
+          {...fade(0.5)}
+          style={{
+            fontSize: "13px",
+            color: "#aaa",
+            maxWidth: "560px",
+            margin: "20px auto 0",
+            lineHeight: 1.6,
+            fontFamily: "var(--font-jakarta)",
+          }}
+        >
+          Based in South Africa, serving US clients remotely. We build Zapier
+          workflows for lead capture, eCommerce, agency operations, accounting
+          automation, and more — starting at $1,000 per project.
+        </motion.p>
       </div>
     </section>
   );

@@ -42,7 +42,7 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section id="services" style={{ padding: "100px 24px", background: "#fff" }}>
+    <section id="services" aria-label="Zapier Automation Services" style={{ padding: "100px 24px", background: "#fff" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <AnimatedSection>
           <div style={{ marginBottom: "56px" }}>
@@ -59,6 +59,21 @@ export default function ServicesOverview() {
             >
               What We Build
             </h2>
+            <p
+              style={{
+                fontSize: "18px",
+                color: "#555",
+                lineHeight: 1.7,
+                maxWidth: "640px",
+                fontFamily: "var(--font-jakarta)",
+                marginTop: "16px",
+              }}
+            >
+              We build custom Zapier automation workflows across every major
+              business function — from lead generation and CRM to eCommerce,
+              accounting, and agency operations. Every workflow is built for your
+              specific tools and tested before delivery.
+            </p>
           </div>
         </AnimatedSection>
 
