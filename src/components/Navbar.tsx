@@ -52,6 +52,23 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
+          <a
+            href="mailto:seanmatthee@auto-ascent.us"
+            style={{
+              fontFamily: "var(--font-outfit)",
+              fontWeight: 700,
+              fontSize: "15px",
+              color: "#63CF6F",
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+              transition: "opacity 0.2s ease",
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.75"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+          >
+            seanmatthee@auto-ascent.us
+          </a>
           <Link
             href="/contact"
             style={{
@@ -123,6 +140,21 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href="mailto:seanmatthee@auto-ascent.us"
+                style={{
+                  fontFamily: "var(--font-outfit)",
+                  fontWeight: 700,
+                  fontSize: "16px",
+                  color: "#63CF6F",
+                  textDecoration: "none",
+                  padding: "14px 0",
+                  borderBottom: "1px solid #E8E8E8",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                seanmatthee@auto-ascent.us
+              </a>
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
