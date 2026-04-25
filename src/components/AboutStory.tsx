@@ -15,13 +15,13 @@ export default function AboutStory() {
             <SectionLabel text="OUR STORY" />
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#3D3D3D", fontFamily: "var(--font-jakarta)", maxWidth: "none" }}>
-                AutoAscent was born out of frustration. Small business owners were drowning in repetitive tasks — copy-pasting data between tools, manually sending follow-ups, losing leads in spreadsheets. We knew Zapier could fix all of it. They just needed someone to build it right.
+                AutoAscent was built to solve two problems every growing business faces: they don't have a website that does them justice, and they're wasting hours on tasks that should run automatically. We fix both.
               </p>
               <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#3D3D3D", fontFamily: "var(--font-jakarta)", maxWidth: "none" }}>
-                We specialise exclusively in Zapier automations. Our focus is to save you time. Just deep, focused expertise in connecting your tech stack and making it run itself. That focus is what makes our workflows reliable.
+                We build custom websites — landing pages, business sites, eCommerce stores — and we build Zapier automation workflows that connect your tools and eliminate manual work. You don't need a different agency for each. We do both, and we do them well.
               </p>
               <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#3D3D3D", fontFamily: "var(--font-jakarta)", maxWidth: "none" }}>
-                Every project we take on starts with a free discovery call where we learn your business before we touch a single Zap. The result is automations that fit how you actually work instead of generic templates.
+                Every project starts with a free discovery call where we learn your business before we build a single thing. The result is a website or workflow that fits how you actually operate — not a generic template dropped into your stack.
               </p>
             </div>
           </article>

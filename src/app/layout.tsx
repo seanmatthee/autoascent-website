@@ -23,29 +23,29 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://auto-ascent.us"),
 
   title: {
-    default: "AutoAscent | Zapier Automation for US Small Businesses",
+    default: "AutoAscent | Web Design & Automation for Businesses Worldwide",
     template: "%s | AutoAscent",
   },
 
   description:
-    "AutoAscent builds custom Zapier automation workflows for US small businesses, marketing agencies, and eCommerce stores. Save 10+ hours per week. Projects from $1,000. Book a free discovery call.",
+    "AutoAscent builds custom websites and Zapier automation workflows for businesses worldwide. From landing pages to full eCommerce stores and no-code integrations. Free discovery call.",
 
   keywords: [
+    "web design agency",
+    "custom website design",
+    "landing page design",
+    "eCommerce website",
     "Zapier automation",
     "Zapier expert",
-    "Zapier consultant",
-    "small business automation",
     "workflow automation service",
     "done for you Zapier",
-    "automate small business",
     "no-code automation",
     "CRM automation",
-    "ecommerce automation",
-    "marketing agency automation",
-    "Zapier workflows",
     "business process automation",
-    "lead capture automation",
-    "US small business tools",
+    "small business web design",
+    "website for small business",
+    "automation and web design",
+    "digital services agency",
   ],
 
   authors: [{ name: "AutoAscent", url: "https://auto-ascent.us" }],
@@ -61,24 +61,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://auto-ascent.us",
     siteName: "AutoAscent",
-    title: "AutoAscent | Zapier Automation for US Small Businesses",
+    title: "AutoAscent | Web Design & Automation for Businesses Worldwide",
     description:
-      "Custom Zapier workflows that save US small businesses 10+ hours per week. Lead capture, eCommerce, agency operations & more. From $1,000.",
+      "Custom websites and Zapier automation workflows for businesses worldwide. We build what your business needs to grow — from landing pages to no-code integrations.",
     images: [
       {
         url: "/og",
         width: 1200,
         height: 630,
-        alt: "AutoAscent — Zapier Automation for US Small Businesses",
+        alt: "AutoAscent — Web Design & Automation for Businesses Worldwide",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "AutoAscent | Zapier Automation for US Small Businesses",
+    title: "AutoAscent | Web Design & Automation for Businesses Worldwide",
     description:
-      "Custom Zapier workflows that save US small businesses 10+ hours per week. From $1,000 per project.",
+      "Custom websites and Zapier workflows for businesses worldwide. Free discovery call.",
     images: ["/og"],
     creator: "@autoascent",
   },

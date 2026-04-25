@@ -21,7 +21,7 @@ export default function Footer() {
             />
           </div>
           <p style={{ color: "#aaa", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", maxWidth: "none" }}>
-            Premium Zapier automations for growing businesses.
+            Custom websites and automation workflows for businesses worldwide.
           </p>
           <div style={{ display: "flex", gap: "16px" }}>
             <a
@@ -98,7 +98,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
               <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>seanmatthee@auto-ascent.us</li>
               <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Centurion, South Africa</li>
-              <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Serving US clients remotely</li>
+              <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Serving clients worldwide, remotely</li>
             </ul>
           </address>
         </div>

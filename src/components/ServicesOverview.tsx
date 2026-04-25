@@ -3,40 +3,28 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const services = [
   {
+    title: "Custom Website Design",
+    desc: "A professionally designed website built from scratch for your business. Fast, mobile-first, and optimised for search — no templates, no compromises.",
+  },
+  {
+    title: "Landing Pages",
+    desc: "High-converting single-page sites for campaigns, product launches, or lead generation. Designed to turn visitors into enquiries.",
+  },
+  {
+    title: "eCommerce Stores",
+    desc: "Full online stores built on Shopify or WooCommerce — product listings, checkout, payment integration, and a design that builds trust.",
+  },
+  {
     title: "Lead Capture Automation",
     desc: "Automatically route leads from your forms, ads, and social into your CRM, tag them, and trigger instant email sequences.",
-    price: "From $1,000",
-    icon: null,
   },
   {
-    title: "E-Commerce Workflows",
-    desc: "Connect Shopify, WooCommerce, or your store to your fulfilment, inventory, and customer comms. Fewer errors, faster dispatch.",
-    price: "From $1,200",
-    icon: null,
+    title: "Zapier Workflow Automation",
+    desc: "Connect your tools with custom multi-step Zapier workflows. From eCommerce fulfilment and accounting sync to agency onboarding and CRM automation.",
   },
   {
-    title: "Agency Operations",
-    desc: "Automate client onboarding, reporting, invoicing, and Slack notifications. Run your agency on autopilot.",
-    price: "From $1,500",
-    icon: null,
-  },
-  {
-    title: "Retainer Support",
-    desc: "Ongoing workflow maintenance, optimisation, and new automations added monthly. We keep your stack running.",
-    price: "From $100/mo",
-    icon: null,
-  },
-  {
-    title: "Accounting Automation",
-    desc: "Automatically sync invoices, expenses, and payments between your store, CRM, and accounting software. Eliminate manual data entry and close your books faster.",
-    price: "From $1,000",
-    icon: null,
-  },
-  {
-    title: "We Build So Much More",
-    desc: "Zapier connects over 6,000 apps — meaning the possibilities are almost endless. From automated reporting and accounting sync, to HR onboarding, inventory alerts, social media scheduling, customer support routing, and beyond. If it's repetitive and happens on a screen, we can automate it. Book a free call and tell us what's slowing you down.",
-    price: "Let's Talk",
-    icon: null,
+    title: "Not Sure What You Need?",
+    desc: "We build websites and automations across every industry — worldwide. If it lives on a screen, we can design it or automate it. Book a free discovery call and tell us where you're losing time or missing out on customers.",
   },
 ];
 
@@ -69,10 +57,10 @@ export default function ServicesOverview() {
                 marginTop: "16px",
               }}
             >
-              We build custom Zapier automation workflows across every major
-              business function — from lead generation and CRM to eCommerce,
-              accounting, and agency operations. Every workflow is built for your
-              specific tools and tested before delivery.
+              We build two things: custom websites and Zapier automation workflows.
+              Whether you need a landing page that converts, an eCommerce store, or
+              a fully automated backend that runs without you — we scope it, build
+              it, and deliver it. Every project starts with a free discovery call.
             </p>
           </div>
         </AnimatedSection>
@@ -123,22 +111,6 @@ export default function ServicesOverview() {
                 >
                   {svc.desc}
                 </p>
-                <div style={{ marginTop: "24px", display: "flex", justifyContent: "flex-end" }}>
-                  <span
-                    style={{
-                      background: "#63CF6F",
-                      border: "1.5px solid #000",
-                      borderRadius: "20px",
-                      padding: "6px 14px",
-                      fontSize: "13px",
-                      fontFamily: "var(--font-outfit)",
-                      fontWeight: 700,
-                      color: "#000",
-                    }}
-                  >
-                    {svc.price}
-                  </span>
-                </div>
               </div>
             </AnimatedSection>
           ))}

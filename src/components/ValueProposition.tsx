@@ -1,24 +1,24 @@
-import { Zap, Clock, TrendingUp } from "lucide-react";
+import { Globe, Zap, TrendingUp } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const cards = [
   {
     num: "01",
-    icon: <Zap size={28} color="#63CF6F" />,
-    title: "Connect Everything",
-    desc: "During our first free meeting we will connect all the relevant apps that you work in daily. Then we will build your fully automated workflow which will save you hours.",
+    icon: <Globe size={28} color="#63CF6F" />,
+    title: "Websites That Convert",
+    desc: "We design and build custom websites, landing pages, and eCommerce stores — clean, fast, and built to turn visitors into customers.",
   },
   {
     num: "02",
-    icon: <Clock size={28} color="#63CF6F" />,
-    title: "Save 10+ Hours Weekly",
-    desc: "Our clients recover 10–20 hours per week from manual data entry and follow-ups. That's time you can put back into growth.",
+    icon: <Zap size={28} color="#63CF6F" />,
+    title: "Automation That Saves Hours",
+    desc: "We connect your tools with Zapier workflows that run 24/7 — from lead capture and CRM sync to invoicing and fulfilment. No manual work required.",
   },
   {
     num: "03",
     icon: <TrendingUp size={28} color="#63CF6F" />,
     title: "Built for Growth",
-    desc: "Every workflow is designed to scale with you — not break when you hit 10x volume. We engineer for your next stage, not just today.",
+    desc: "Everything we build is designed to scale with you. Whether you need a website today and automation next month, we're your long-term digital partner.",
   },
 ];
 

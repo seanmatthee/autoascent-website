@@ -8,14 +8,14 @@ import AnimatedLogo from "@/components/AnimatedLogo";
 export const metadata: Metadata = {
   title: "Book a Free Discovery Call | AutoAscent",
   description:
-    "Book a free 30-minute Zapier automation discovery call with AutoAscent. Tell us about your business and we'll show you exactly what we'd automate. US small businesses welcome.",
+    "Book a free 30-minute discovery call with AutoAscent. Tell us about your business and we'll show you what we'd build — website, automation, or both. Clients worldwide welcome.",
   alternates: {
     canonical: "https://auto-ascent.us/contact",
   },
   openGraph: {
     title: "Book a Free Discovery Call | AutoAscent",
     description:
-      "Free 30-minute call. Tell us your biggest manual time-waster and we'll map out exactly how to automate it.",
+      "Free 30-minute call. Tell us what your business needs and we'll show you exactly what we'd build.",
     url: "https://auto-ascent.us/contact",
     images: [{ url: "/og", width: 1200, height: 630 }],
   },
@@ -30,7 +30,7 @@ const contactItems = [
   {
     icon: <MapPin size={18} />,
     label: "Location",
-    value: "Centurion, South Africa\n(serving US clients remotely)",
+    value: "Centurion, South Africa\n(serving clients worldwide, remotely)",
   },
   {
     icon: <Clock size={18} />,
@@ -76,7 +76,7 @@ export default function ContactPage() {
                 maxWidth: "none",
               }}
             >
-              Fill in the form below so we know a little bit about your business before our first free discovery call.
+              Fill in the form below so we know a bit about your business before our first free discovery call. Whether you need a website, automation, or both — we'll figure out the right fit.
             </p>
           </div>
         </AnimatedSection>
@@ -164,7 +164,7 @@ export default function ContactPage() {
                   lineHeight: 1.6,
                 }}
               >
-                All services are delivered remotely. We work with US clients across all time zones.
+                All services are delivered remotely. We work with clients across all time zones, worldwide.
               </div>
 
               <div style={{ marginTop: "32px", display: "flex", justifyContent: "center" }}>

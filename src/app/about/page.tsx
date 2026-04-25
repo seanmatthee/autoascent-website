@@ -5,16 +5,16 @@ import AboutStory from "@/components/AboutStory";
 import AboutWhy from "@/components/AboutWhy";
 
 export const metadata: Metadata = {
-  title: "About Us — Zapier Automation Specialists | AutoAscent",
+  title: "About Us — Web Design & Automation Agency | AutoAscent",
   description:
-    "AutoAscent specialises exclusively in Zapier automation for US small businesses. Learn about our approach: free discovery call, custom workflow builds, and reliable automations that actually work.",
+    "AutoAscent builds custom websites and Zapier automation workflows for businesses worldwide. Learn about our approach: free discovery call, clear scoping, and work that actually delivers results.",
   alternates: {
     canonical: "https://auto-ascent.us/about",
   },
   openGraph: {
-    title: "About AutoAscent — Zapier Automation Specialists",
+    title: "About AutoAscent — Web Design & Automation Agency",
     description:
-      "We specialise exclusively in Zapier. Deep expertise in connecting your tech stack and making it run itself.",
+      "We build websites and automation workflows for businesses worldwide. One team, two services, zero fluff.",
     url: "https://auto-ascent.us/about",
     images: [{ url: "/og", width: 1200, height: 630 }],
   },
@@ -50,7 +50,7 @@ export default function AboutPage() {
                 marginBottom: "24px",
               }}
             >
-              We Build Automations That Actually Work
+              We Build Websites and Automations That Actually Work
             </h1>
             <p
               style={{
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 maxWidth: "none",
               }}
             >
-              AutoAscent was founded to give small businesses access to the same operational leverage that enterprise companies take for granted. We will help you scale by saving hours of your time.
+              AutoAscent was built to give businesses worldwide access to professional web design and no-code automation — without agency overhead or enterprise pricing. One team. Two services. Real results.
             </p>
           </div>
         </AnimatedSection>

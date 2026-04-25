@@ -23,7 +23,7 @@ export default function HomeCTA() {
               lineHeight: 1.15,
             }}
           >
-            Ready to Stop Doing Things Manually?
+            Ready to Build Something That Works?
           </h2>
           <p
             style={{
@@ -35,7 +35,7 @@ export default function HomeCTA() {
               maxWidth: "none",
             }}
           >
-            Book a free 30-minute consultation. We'll map out your biggest time-wasters and show you exactly what we'd automate.
+            Book a free 30-minute consultation. Whether you need a website, an automation, or both — we'll scope exactly what your business needs and show you what it would look like.
           </p>
           <Button label="Book Your Free Consultation" href="/contact" variant="primary" />
         </div>

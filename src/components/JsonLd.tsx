@@ -9,26 +9,26 @@ export default function JsonLd() {
         "url": "https://auto-ascent.us",
         "logo": "https://auto-ascent.us/logo-black.png",
         "image": "https://auto-ascent.us/og",
-        "description": "AutoAscent builds custom Zapier automation workflows for US small businesses, marketing agencies, and eCommerce stores.",
+        "description": "AutoAscent builds custom websites and Zapier automation workflows for businesses worldwide.",
         "email": "seanmatthee@auto-ascent.us",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Centurion",
           "addressCountry": "ZA"
         },
-        "areaServed": {
-          "@type": "Country",
-          "name": "United States"
-        },
-        "serviceType": "Zapier Automation",
-        "priceRange": "$1,000 - $2,000",
+        "areaServed": "Worldwide",
+        "serviceType": ["Web Design", "Zapier Automation", "eCommerce Development"],
         "knowsAbout": [
+          "web design",
+          "website development",
+          "landing page design",
+          "eCommerce websites",
+          "Shopify development",
           "Zapier automation",
           "workflow automation",
           "business process automation",
           "no-code automation",
-          "CRM integration",
-          "eCommerce automation"
+          "CRM integration"
         ],
         "sameAs": [
           "https://auto-ascent.us"
@@ -39,26 +39,22 @@ export default function JsonLd() {
         "@id": "https://auto-ascent.us/#website",
         "url": "https://auto-ascent.us",
         "name": "AutoAscent",
-        "description": "Zapier Automation for US Small Businesses",
+        "description": "Web Design & Automation for Businesses Worldwide",
         "publisher": { "@id": "https://auto-ascent.us/#business" }
+      },
+      {
+        "@type": "Service",
+        "name": "Custom Website Design",
+        "provider": { "@id": "https://auto-ascent.us/#business" },
+        "serviceType": "Web Design",
+        "areaServed": "Worldwide"
       },
       {
         "@type": "Service",
         "name": "Zapier Workflow Automation",
         "provider": { "@id": "https://auto-ascent.us/#business" },
         "serviceType": "Business Process Automation",
-        "areaServed": "United States",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "price": "1000",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "1000",
-            "maxPrice": "2000",
-            "priceCurrency": "USD"
-          }
-        }
+        "areaServed": "Worldwide"
       }
     ]
   };

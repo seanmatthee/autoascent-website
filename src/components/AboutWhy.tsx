@@ -5,23 +5,23 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const items = [
   {
     icon: <CheckCircle size={24} color="#63CF6F" />,
-    title: "Zapier Specialists, Not Generalists",
-    desc: "We do one thing and do it exceptionally well.",
+    title: "Two Services, One Team",
+    desc: "We build websites and automation workflows. You get a single partner who understands both — and how they work together to grow your business.",
   },
   {
     icon: <Users size={24} color="#63CF6F" />,
-    title: "Small Business DNA",
-    desc: "We understand your constraints. Every solution is scoped to be affordable and impactful.",
+    title: "Built for Real Budgets",
+    desc: "We work with businesses at every stage. Every project is scoped to be affordable, impactful, and clear before you commit.",
   },
   {
     icon: <Shield size={24} color="#63CF6F" />,
     title: "Built to Last",
-    desc: "We document every workflow and test rigorously. Your automations won't break at 2am.",
+    desc: "We document everything and test rigorously. Your website won't go down and your automations won't break at 2am.",
   },
   {
     icon: <ArrowUpRight size={24} color="#63CF6F" />,
     title: "Results-First Pricing",
-    desc: "Our projects are scoped to deliver clear ROI. You'll know exactly what you're getting before you pay.",
+    desc: "Every project is scoped to deliver clear value. You'll know exactly what you're getting — and what it'll do for your business — before you pay.",
   },
 ];
 

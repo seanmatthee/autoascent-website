@@ -30,7 +30,7 @@ export default function HeroSection() {
         <motion.div {...fade(0)} style={{ display: "flex", justifyContent: "center", marginBottom: "12px" }}>
           <Image
             src="/logo-white.png"
-            alt="AutoAscent — Zapier Automation Service"
+            alt="AutoAscent — Web Design & Automation"
             width={140}
             height={35}
             priority
@@ -66,9 +66,9 @@ export default function HeroSection() {
             marginBottom: "8px",
           }}
         >
-          Zapier Automation for
+          Websites & Automation
           <br />
-          US Small Businesses
+          for Businesses Worldwide
         </motion.h1>
 
         <motion.p
@@ -82,7 +82,7 @@ export default function HeroSection() {
             margin: "8px 0 24px",
           }}
         >
-          Automate Smarter. Scale Faster.
+          Build Smarter. Grow Faster.
         </motion.p>
 
         <motion.p
@@ -95,7 +95,7 @@ export default function HeroSection() {
             margin: "0 auto 40px",
           }}
         >
-          We save you hours of work by building fully automated Zapier workflows suited to your needs.
+          We build custom websites and Zapier automation workflows — everything your business needs to look professional and run on autopilot.
         </motion.p>
 
         <motion.div
@@ -104,7 +104,7 @@ export default function HeroSection() {
         >
           <Button label="Get a Free Consultation" href="/contact" variant="primary" />
           <Button
-            label="See How It Works"
+            label="See What We Build"
             variant="secondary"
             onClick={() => {
               document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
@@ -117,7 +117,7 @@ export default function HeroSection() {
           {...fade(0.4)}
           style={{ display: "flex", alignItems: "center", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}
         >
-          {["Zapier Certified", "US Small Business Focused"].map((label) => (
+          {["Custom Web Design", "Zapier Automation", "Worldwide Clients"].map((label) => (
             <span
               key={label}
               style={{
@@ -150,9 +150,7 @@ export default function HeroSection() {
             fontFamily: "var(--font-jakarta)",
           }}
         >
-          Based in South Africa, serving US clients remotely. We build Zapier
-          workflows for lead capture, eCommerce, agency operations, accounting
-          automation, and more — starting at $1,000 per project.
+          Based in South Africa, serving clients remotely worldwide. We build custom websites, landing pages, eCommerce stores, and Zapier automation workflows — scoped to your business and budget.
         </motion.p>
       </div>
     </section>
