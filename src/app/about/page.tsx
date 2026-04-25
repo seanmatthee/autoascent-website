@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AboutStory from "@/components/AboutStory";
+import AboutFounder from "@/components/AboutFounder";
 import AboutWhy from "@/components/AboutWhy";
 
 export const metadata: Metadata = {
@@ -68,6 +69,7 @@ export default function AboutPage() {
       </section>
 
       <AboutStory />
+      <AboutFounder />
       <AboutWhy />
     </>
   );

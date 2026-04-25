@@ -66,7 +66,7 @@ export default function HeroSection() {
             marginBottom: "8px",
           }}
         >
-          Websites & Automation
+          Building Websites & Automation
           <br />
           for Businesses Worldwide
         </motion.h1>

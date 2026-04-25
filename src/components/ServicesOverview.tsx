@@ -12,7 +12,7 @@ const services = [
   },
   {
     title: "eCommerce Stores",
-    desc: "Full online stores built on Shopify or WooCommerce — product listings, checkout, payment integration, and a design that builds trust.",
+    desc: "Automate sale reports, customer emails and so much more via Zapier — so your store runs itself while you focus on growth.",
   },
   {
     title: "Lead Capture Automation",

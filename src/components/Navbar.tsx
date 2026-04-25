@@ -22,6 +22,7 @@ export default function Navbar() {
         zIndex: 100,
         background: "#fff",
         borderBottom: "2px solid #000",
+        overflow: "visible",
       }}
     >
       <div
@@ -35,7 +36,7 @@ export default function Navbar() {
           justifyContent: "space-between",
         }}
       >
-        {/* Logo */}
+        {/* Logo — left */}
         <Link href="/" style={{ display: "block", flexShrink: 0 }}>
           <Image
             src="/logo-white.png"
@@ -47,28 +48,34 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop nav */}
+        {/* Email — true centre */}
+        <a
+          href="mailto:seanmatthee@auto-ascent.us"
+          className="hidden md:flex"
+          style={{
+            fontFamily: "var(--font-outfit)",
+            fontWeight: 700,
+            fontSize: "15px",
+            color: "#63CF6F",
+            textDecoration: "none",
+            letterSpacing: "-0.01em",
+            transition: "opacity 0.2s ease",
+            cursor: "pointer",
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.75"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+        >
+          seanmatthee@auto-ascent.us
+        </a>
+
+        {/* Nav links + CTA — right */}
         <div className="hidden md:flex" style={{ alignItems: "center", gap: "32px" }}>
           {navLinks.map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
-          <a
-            href="mailto:seanmatthee@auto-ascent.us"
-            style={{
-              fontFamily: "var(--font-outfit)",
-              fontWeight: 700,
-              fontSize: "15px",
-              color: "#63CF6F",
-              textDecoration: "none",
-              letterSpacing: "-0.01em",
-              transition: "opacity 0.2s ease",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.75"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
-          >
-            seanmatthee@auto-ascent.us
-          </a>
           <Link
             href="/contact"
             style={{

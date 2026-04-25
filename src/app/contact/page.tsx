@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
@@ -26,16 +26,25 @@ const contactItems = [
     icon: <Mail size={18} />,
     label: "Email",
     value: "seanmatthee@auto-ascent.us",
+    href: "mailto:seanmatthee@auto-ascent.us",
+  },
+  {
+    icon: <MessageCircle size={18} />,
+    label: "WhatsApp",
+    value: "+27 71 385 4935",
+    href: "https://wa.me/27713854935",
   },
   {
     icon: <MapPin size={18} />,
     label: "Location",
     value: "Centurion, South Africa\n(serving clients worldwide, remotely)",
+    href: null,
   },
   {
     icon: <Clock size={18} />,
     label: "Response Time",
     value: "Within 24 hours",
+    href: null,
   },
 ];
 
@@ -136,17 +145,36 @@ export default function ContactPage() {
                       >
                         {item.label}
                       </div>
-                      <div
-                        style={{
-                          fontFamily: "var(--font-jakarta)",
-                          fontSize: "16px",
-                          color: "#000",
-                          whiteSpace: "pre-line",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {item.value}
-                      </div>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target={item.href.startsWith("https") ? "_blank" : undefined}
+                          rel={item.href.startsWith("https") ? "noopener noreferrer" : undefined}
+                          style={{
+                            fontFamily: "var(--font-jakarta)",
+                            fontSize: "16px",
+                            color: "#000",
+                            whiteSpace: "pre-line",
+                            lineHeight: 1.5,
+                            textDecoration: "none",
+                            borderBottom: "1.5px solid #63CF6F",
+                          }}
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <div
+                          style={{
+                            fontFamily: "var(--font-jakarta)",
+                            fontSize: "16px",
+                            color: "#000",
+                            whiteSpace: "pre-line",
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          {item.value}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
