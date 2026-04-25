@@ -20,22 +20,27 @@ export default function AboutFounder() {
           >
             <div
               style={{
-                position: "relative",
-                width: "100%",
-                maxWidth: "420px",
-                aspectRatio: "4 / 5",
                 border: "3px solid #000",
                 borderRadius: "16px",
                 boxShadow: "8px 8px 0px #000",
                 overflow: "hidden",
                 background: "#E8E8E8",
+                maxWidth: "420px",
+                width: "100%",
               }}
             >
               <Image
                 src="/founder.jpeg"
                 alt="Sean Matthee — Founder of AutoAscent"
-                fill
-                style={{ objectFit: "cover", objectPosition: "center top" }}
+                width={420}
+                height={525}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                }}
                 priority
               />
             </div>
@@ -69,7 +74,7 @@ export default function AboutFounder() {
                   maxWidth: "none",
                 }}
               >
-                Sean Matthee is the founder of AutoAscent and the driving force behind everything we build. At 17, Sean is already co-founder and CFO of MotoSwop, a South African motorbike marketplace — which means he understands what it actually takes to run a business, manage money, and build systems that hold up under pressure.
+                Sean Matthee is the founder of AutoAscent and the driving force behind everything we build. At 17, Sean is already co-founded a South African motorbike marketplace named MotoSwop — which means he understands what it actually takes to run a business, manage money, and build systems that holds under pressure.
               </p>
               <p
                 style={{
@@ -80,7 +85,7 @@ export default function AboutFounder() {
                   maxWidth: "none",
                 }}
               >
-                AutoAscent exists because Sean saw first-hand how much time business owners lose to manual, repetitive work — and how transformative the right website and automation stack can be when built correctly. He started AutoAscent to give businesses worldwide access to that same leverage, without the agency overhead.
+                AutoAscent exists because Sean saw first-hand how much time business owners lose to manual, repetitive work — and how transformative the right website and automation stack can be when built correctly. He started AutoAscent to give businesses worldwide access to that same leverage, without the agency overhead or enterprise cost.
               </p>
               <p
                 style={{
