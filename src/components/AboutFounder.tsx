@@ -32,7 +32,7 @@ export default function AboutFounder() {
               }}
             >
               <Image
-                src="/founder.jpg"
+                src="/founder.jpeg"
                 alt="Sean Matthee — Founder of AutoAscent"
                 fill
                 style={{ objectFit: "cover", objectPosition: "center top" }}
