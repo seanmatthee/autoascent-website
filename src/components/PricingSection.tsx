@@ -7,8 +7,8 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const plans = [
   {
     name: "Landing Page",
-    price: "$1,000",
-    cadence: "One-off",
+    price: "From $200",
+    cadence: "Starting price",
     features: [
       "Custom design (no templates)",
       "Mobile-first, fast-loading",
@@ -20,8 +20,8 @@ const plans = [
   },
   {
     name: "Full Website",
-    price: "$1,500",
-    cadence: "One-off",
+    price: "From $800",
+    cadence: "Starting price",
     features: [
       "Everything in Landing Page",
       "Up to 6 pages",
