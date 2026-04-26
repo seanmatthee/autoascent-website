@@ -204,6 +204,35 @@ export default function PricingSection() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href="/contact"
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    textAlign: "center",
+                    marginTop: "20px",
+                    background: "#63CF6F",
+                    border: "2px solid #000",
+                    borderRadius: "10px",
+                    padding: "13px",
+                    fontFamily: "var(--font-outfit)",
+                    fontWeight: 600,
+                    fontSize: "15px",
+                    color: "#000",
+                    textDecoration: "none",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = "4px 4px 0px #000";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  Get Started →
+                </Link>
               </div>
             </AnimatedSection>
           ))}

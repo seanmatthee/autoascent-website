@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/next";
+import PrivacyBanner from "@/components/PrivacyBanner";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -116,6 +117,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <Analytics />
+        <PrivacyBanner />
       </body>
     </html>
   );
