@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 
+const AVAILABILITY_COUNT = 2;
+const AVAILABILITY_MONTH = "May 2026";
+
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
@@ -34,6 +37,7 @@ export default function HeroSection() {
             width={140}
             height={35}
             priority
+            quality={85}
           />
         </motion.div>
 
@@ -92,24 +96,62 @@ export default function HeroSection() {
             color: "#555",
             lineHeight: 1.7,
             maxWidth: "600px",
-            margin: "0 auto 40px",
+            margin: "0 auto 24px",
           }}
         >
           We build custom websites and Zapier automation workflows — everything your business needs to look professional and run on autopilot.
         </motion.p>
 
+        <motion.div {...fade(0.28)} style={{ display: "flex", justifyContent: "center", marginBottom: "24px" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              background: "#f0fdf4",
+              border: "1.5px solid #63CF6F",
+              borderRadius: "999px",
+              padding: "6px 16px",
+              fontFamily: "var(--font-jakarta)",
+              fontSize: "14px",
+              color: "#3D3D3D",
+              fontWeight: 500,
+            }}
+          >
+            <span
+              style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                background: "#63CF6F",
+                display: "inline-block",
+                flexShrink: 0,
+              }}
+            />
+            Currently accepting {AVAILABILITY_COUNT} new clients for {AVAILABILITY_MONTH}
+          </div>
+        </motion.div>
+
         <motion.div
           {...fade(0.32)}
-          style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}
+          style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}
         >
           <Button label="Get a Free Consultation" href="/contact" variant="primary" />
-          <Button
-            label="See What We Build"
-            variant="secondary"
-            onClick={() => {
-              document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+          <button
+            onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "var(--font-outfit)",
+              fontWeight: 600,
+              fontSize: "16px",
+              color: "#000",
+              padding: "0",
             }}
-          />
+          >
+            See how it works →
+          </button>
         </motion.div>
 
         {/* 2 badges */}

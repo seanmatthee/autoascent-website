@@ -17,6 +17,7 @@ export default function Footer() {
               alt="AutoAscent"
               width={160}
               height={40}
+              quality={85}
               style={{ display: "block" }}
             />
           </div>
@@ -65,6 +66,7 @@ export default function Footer() {
               { label: "About Us",         href: "/about" },
               { label: "Contact Us",       href: "/contact" },
               { label: "Book a Free Call", href: "/contact" },
+              { label: "Privacy Policy",   href: "/privacy" },
             ].map((link) => (
               <li key={link.href}>
                 <Link

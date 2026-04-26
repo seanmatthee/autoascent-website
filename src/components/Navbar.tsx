@@ -44,6 +44,7 @@ export default function Navbar() {
             width={180}
             height={45}
             priority
+            quality={85}
             style={{ display: "block" }}
           />
         </Link>

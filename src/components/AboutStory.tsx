@@ -1,6 +1,6 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
-import WorkflowWidget from "@/components/WorkflowWidget";
+import HoursSavedCounter from "@/components/HoursSavedCounter";
 
 export default function AboutStory() {
   return (
@@ -27,7 +27,7 @@ export default function AboutStory() {
           </article>
         </AnimatedSection>
 
-        {/* WorkflowWidget */}
+        {/* Hours Saved Counter */}
         <AnimatedSection delay={0.15}>
           <div
             style={{
@@ -37,7 +37,7 @@ export default function AboutStory() {
               padding: "32px",
             }}
           >
-            <WorkflowWidget />
+            <HoursSavedCounter />
           </div>
         </AnimatedSection>
       </div>

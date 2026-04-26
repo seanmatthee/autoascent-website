@@ -6,10 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://auto-ascent.us/sitemap.xml",
-    host: "https://auto-ascent.us",
+    sitemap: "https://www.auto-ascent.us/sitemap.xml",
+    host: "https://www.auto-ascent.us",
   };
 }

@@ -6,7 +6,7 @@ import AboutFounder from "@/components/AboutFounder";
 import AboutWhy from "@/components/AboutWhy";
 
 export const metadata: Metadata = {
-  title: "About Us — Web Design & Automation Agency | AutoAscent",
+  title: "About Us — Web Design & Automation Agency",
   description:
     "AutoAscent builds custom websites and Zapier automation workflows for businesses worldwide. Learn about our approach: free discovery call, clear scoping, and work that actually delivers results.",
   alternates: {

@@ -1,67 +1,54 @@
+import Script from "next/script";
+
 export default function JsonLd() {
   const schema = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ProfessionalService",
-        "@id": "https://auto-ascent.us/#business",
-        "name": "AutoAscent",
-        "url": "https://auto-ascent.us",
-        "logo": "https://auto-ascent.us/logo-black.png",
-        "image": "https://auto-ascent.us/og",
-        "description": "AutoAscent builds custom websites and Zapier automation workflows for businesses worldwide.",
-        "email": "seanmatthee@auto-ascent.us",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Centurion",
-          "addressCountry": "ZA"
+    "@type": "LocalBusiness",
+    name: "AutoAscent",
+    url: "https://www.auto-ascent.us",
+    email: "seanmatthee@auto-ascent.us",
+    telephone: "+27713854935",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Centurion",
+      addressRegion: "Gauteng",
+      addressCountry: "ZA",
+    },
+    description:
+      "Custom websites and Zapier automation workflows for businesses worldwide.",
+    founder: { "@type": "Person", name: "Sean Matthee" },
+    areaServed: "Worldwide",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Custom Website Design",
+            description:
+              "Professionally designed websites built from scratch for your business.",
+          },
         },
-        "areaServed": "Worldwide",
-        "serviceType": ["Web Design", "Zapier Automation", "eCommerce Development"],
-        "knowsAbout": [
-          "web design",
-          "website development",
-          "landing page design",
-          "eCommerce websites",
-          "Shopify development",
-          "Zapier automation",
-          "workflow automation",
-          "business process automation",
-          "no-code automation",
-          "CRM integration"
-        ],
-        "sameAs": [
-          "https://auto-ascent.us"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://auto-ascent.us/#website",
-        "url": "https://auto-ascent.us",
-        "name": "AutoAscent",
-        "description": "Web Design & Automation for Businesses Worldwide",
-        "publisher": { "@id": "https://auto-ascent.us/#business" }
-      },
-      {
-        "@type": "Service",
-        "name": "Custom Website Design",
-        "provider": { "@id": "https://auto-ascent.us/#business" },
-        "serviceType": "Web Design",
-        "areaServed": "Worldwide"
-      },
-      {
-        "@type": "Service",
-        "name": "Zapier Workflow Automation",
-        "provider": { "@id": "https://auto-ascent.us/#business" },
-        "serviceType": "Business Process Automation",
-        "areaServed": "Worldwide"
-      }
-    ]
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Zapier Workflow Automation",
+            description:
+              "Custom multi-step Zapier workflows connecting your business tools.",
+          },
+        },
+      ],
+    },
   };
 
   return (
-    <script
+    <Script
+      id="json-ld"
       type="application/ld+json"
+      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );

@@ -6,7 +6,7 @@ import ContactForm from "@/components/ContactForm";
 import AnimatedLogo from "@/components/AnimatedLogo";
 
 export const metadata: Metadata = {
-  title: "Book a Free Discovery Call | AutoAscent",
+  title: "Book a Free Discovery Call",
   description:
     "Book a free 30-minute discovery call with AutoAscent. Tell us about your business and we'll show you what we'd build — website, automation, or both. Clients worldwide welcome.",
   alternates: {

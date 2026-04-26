@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://auto-ascent.us"),
 
   title: {
-    default: "AutoAscent | Web Design & Automation for Businesses Worldwide",
+    default: "AutoAscent",
     template: "%s | AutoAscent",
   },
 
@@ -108,14 +109,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${outfit.variable} ${jakarta.variable}`}>
-      <head>
-        <JsonLd />
-      </head>
       <body className="min-h-screen flex flex-col">
+        <JsonLd />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );
