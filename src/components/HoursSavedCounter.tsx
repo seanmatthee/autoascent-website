@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 export default function HoursSavedCounter() {
-  const [count, setCount] = useState(50);
+  const [count, setCount] = useState(91);
   const [flipping, setFlipping] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -15,7 +15,7 @@ export default function HoursSavedCounter() {
         setCount((c) => c + 1);
         setFlipping(false);
       }, 200);
-    }, 3000);
+    }, 60000);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
