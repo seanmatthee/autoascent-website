@@ -25,8 +25,8 @@ export default function ShowcaseCard({
         transition: "border-color 0.25s ease, box-shadow 0.25s ease",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "#579AC2";
-        e.currentTarget.style.boxShadow = "0 0 32px rgba(87,154,194,0.2)";
+        e.currentTarget.style.borderColor = "#63CF6F";
+        e.currentTarget.style.boxShadow = "0 0 32px rgba(99,207,111,0.2)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.borderColor = "#1a1a1a";

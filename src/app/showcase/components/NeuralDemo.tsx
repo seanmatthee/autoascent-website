@@ -121,7 +121,7 @@ export default function NeuralDemo() {
         ctx.beginPath();
         ctx.moveTo(na.x, na.y);
         ctx.lineTo(nb.x, nb.y);
-        ctx.strokeStyle = `rgba(87,154,194,${0.055 + bright * 0.22})`;
+        ctx.strokeStyle = `rgba(99,207,111,${0.055 + bright * 0.22})`;
         ctx.lineWidth = 0.9;
         ctx.stroke();
       }
@@ -136,8 +136,8 @@ export default function NeuralDemo() {
           const y = na.y + (nb.y - na.y) * s.t;
 
           const grad = ctx.createRadialGradient(x, y, 0, x, y, 8);
-          grad.addColorStop(0, `rgba(87,154,194,${0.9 - s.t * 0.4})`);
-          grad.addColorStop(1, "rgba(87,154,194,0)");
+          grad.addColorStop(0, `rgba(99,207,111,${0.9 - s.t * 0.4})`);
+          grad.addColorStop(1, "rgba(99,207,111,0)");
           ctx.beginPath();
           ctx.arc(x, y, 8, 0, Math.PI * 2);
           ctx.fillStyle = grad;
@@ -157,8 +157,8 @@ export default function NeuralDemo() {
         const r = 4.5 + n.lit * 5;
         if (n.lit > 0.04) {
           const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 3.5);
-          grd.addColorStop(0, `rgba(87,154,194,${n.lit * 0.45})`);
-          grd.addColorStop(1, "rgba(87,154,194,0)");
+          grd.addColorStop(0, `rgba(99,207,111,${n.lit * 0.45})`);
+          grd.addColorStop(1, "rgba(99,207,111,0)");
           ctx.beginPath();
           ctx.arc(n.x, n.y, r * 3.5, 0, Math.PI * 2);
           ctx.fillStyle = grd;
@@ -166,7 +166,7 @@ export default function NeuralDemo() {
         }
         ctx.beginPath();
         ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(87,154,194,${0.18 + n.lit * 0.82})`;
+        ctx.fillStyle = `rgba(99,207,111,${0.18 + n.lit * 0.82})`;
         ctx.fill();
       }
 

@@ -90,7 +90,7 @@ export default function EyesDemo() {
         if (!blinks[i]) {
           ctx.beginPath();
           ctx.arc(px, py, IRIS_R, 0, Math.PI * 2);
-          ctx.fillStyle = "#579AC2";
+          ctx.fillStyle = "#63CF6F";
           ctx.fill();
 
           ctx.beginPath();

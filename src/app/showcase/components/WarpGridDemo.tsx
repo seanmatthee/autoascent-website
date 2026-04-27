@@ -81,9 +81,9 @@ export default function WarpGridDemo() {
           const disp = Math.sqrt((d.x - d.hx) ** 2 + (d.y - d.hy) ** 2);
           const t = Math.min(disp / 28, 1);
 
-          const rr = Math.round(38 + t * 89);
-          const gg = Math.round(58 + t * 96);
-          const bb = Math.round(78 + t * 116);
+          const rr = Math.round(20 + t * 79);
+          const gg = Math.round(40 + t * 167);
+          const bb = Math.round(22 + t * 89);
 
           if (c < COLS - 1) {
             const nb = dots[idx + 1];

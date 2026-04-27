@@ -60,7 +60,7 @@ export default function ShowcaseContent() {
             fontFamily: "var(--font-outfit)",
             fontWeight: 600,
             fontSize: "14px",
-            color: "#579AC2",
+            color: "#63CF6F",
             textDecoration: "none",
             marginBottom: "40px",
             opacity: 0.85,
@@ -77,8 +77,8 @@ export default function ShowcaseContent() {
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
-            background: "rgba(87,154,194,0.1)",
-            border: "1px solid rgba(87,154,194,0.3)",
+            background: "rgba(99,207,111,0.1)",
+            border: "1px solid rgba(99,207,111,0.3)",
             borderRadius: "999px",
             padding: "6px 14px",
             marginBottom: "24px",
@@ -90,7 +90,7 @@ export default function ShowcaseContent() {
               fontWeight: 700,
               fontSize: "11px",
               letterSpacing: "0.1em",
-              color: "#579AC2",
+              color: "#63CF6F",
               textTransform: "uppercase",
             }}
           >
@@ -111,7 +111,7 @@ export default function ShowcaseContent() {
         >
           Built to Move.
           <br />
-          <span style={{ color: "#579AC2" }}>See It in Action.</span>
+          <span style={{ color: "#63CF6F" }}>See It in Action.</span>
         </h1>
 
         <p
