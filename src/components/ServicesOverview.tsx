@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
@@ -62,6 +63,28 @@ export default function ServicesOverview() {
               a fully automated backend that runs without you — we scope it, build
               it, and deliver it. Every project starts with a free discovery call.
             </p>
+            <div style={{ marginTop: "28px" }}>
+              <Link
+                href="/showcase"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontFamily: "var(--font-outfit)",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  color: "#fff",
+                  textDecoration: "none",
+                  background: "#579AC2",
+                  border: "2px solid #000",
+                  borderRadius: "10px",
+                  padding: "12px 22px",
+                  transition: "all 0.2s ease",
+                }}
+              >
+                See It in Action →
+              </Link>
+            </div>
           </div>
         </AnimatedSection>
 

@@ -74,7 +74,7 @@ export default function AboutFounder() {
                   maxWidth: "none",
                 }}
               >
-                Sean Matthee is the founder of AutoAscent and the driving force behind everything we build. At 17, Sean has already co-founded a South African motorbike marketplace named MotoSwop — which means he understands what it actually takes to run a business, manage money, and build systems that holds under pressure.
+                Sean Matthee is the founder of AutoAscent and the driving force behind everything we build. At 17, Sean has already co-founded a South African motorbike marketplace named MotoSwop — which means he understands what it actually takes to run a business, manage money, and build systems that hold under pressure.
               </p>
               <p
                 style={{

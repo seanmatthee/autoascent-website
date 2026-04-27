@@ -65,6 +65,7 @@ export default function Footer() {
               { label: "What We Build",   href: "/what-we-build" },
               { label: "Services",         href: "/#services" },
               { label: "About Us",         href: "/about" },
+              { label: "See Our Work",     href: "/showcase" },
               { label: "Contact Us",       href: "/contact" },
               { label: "Book a Free Call", href: "/contact" },
               { label: "Privacy Policy",   href: "/privacy" },
@@ -118,7 +119,7 @@ export default function Footer() {
           fontFamily: "var(--font-jakarta)",
         }}
       >
-        © 2026 AutoAscent®. All rights reserved.
+        © 2026 AutoAscent™. All rights reserved.
       </div>
     </footer>
   );
