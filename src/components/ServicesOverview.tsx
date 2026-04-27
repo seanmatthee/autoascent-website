@@ -75,7 +75,7 @@ export default function ServicesOverview() {
                   fontSize: "15px",
                   color: "#fff",
                   textDecoration: "none",
-                  background: "#579AC2",
+                  background: "#63CF6F",
                   border: "2px solid #000",
                   borderRadius: "10px",
                   padding: "12px 22px",

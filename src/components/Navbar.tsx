@@ -10,7 +10,6 @@ const navLinks = [
   { label: "Home",          href: "/" },
   { label: "What We Build", href: "/what-we-build" },
   { label: "About Us",      href: "/about" },
-  { label: "See Our Work",  href: "/showcase" },
 ];
 
 export default function Navbar() {
