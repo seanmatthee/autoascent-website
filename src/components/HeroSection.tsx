@@ -1,8 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+
+const ROTATING_WORDS = ["Websites", "Automations", "Integrations", "Workflows", "AI Systems"];
 
 const AVAILABILITY_COUNT = 2;
 const AVAILABILITY_MONTH = "May 2026";
@@ -14,6 +17,15 @@ const fade = (delay: number) => ({
 });
 
 export default function HeroSection() {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((i) => (i + 1) % ROTATING_WORDS.length);
+    }, 2400);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       style={{
@@ -70,7 +82,28 @@ export default function HeroSection() {
             marginBottom: "8px",
           }}
         >
-          Building Websites & Automation
+          We Build{" "}
+          <span
+            style={{
+              display: "inline-block",
+              minWidth: "280px",
+              position: "relative",
+              verticalAlign: "bottom",
+            }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={wordIndex}
+                initial={{ opacity: 0, y: 16, clipPath: "inset(0 0 100% 0)" }}
+                animate={{ opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }}
+                exit={{ opacity: 0, y: -16, clipPath: "inset(100% 0 0 0)" }}
+                transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                style={{ color: "#63CF6F", display: "inline-block" }}
+              >
+                {ROTATING_WORDS[wordIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
           <br />
           for Businesses Worldwide
         </motion.h1>
