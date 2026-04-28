@@ -24,13 +24,13 @@ const CalendarIcon2 = () => (
 
 const STEPS = [
   // eslint-disable-next-line @next/next/no-img-element
-  { id: "gmail",    icon: <img src="/logos/Gmail%20Logo.svg"  alt="Gmail"  width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Gmail",    event: "New Form Submission", type: "trigger" as const, color: "#EA4335" },
-  { id: "filter",   icon: <FilterIcon2 />,                                                                                                                     label: "Filter",   event: "Qualify Lead Score",  type: "filter"  as const, color: "#63CF6F" },
+  { id: "gmail",    icon: <img src="/logos/gmail.svg"   alt="Gmail"   width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Gmail",    event: "New Form Submission", type: "trigger" as const, color: "#EA4335" },
+  { id: "filter",   icon: <FilterIcon2 />,                                                                                                                label: "Filter",   event: "Qualify Lead Score",  type: "filter"  as const, color: "#63CF6F" },
   // eslint-disable-next-line @next/next/no-img-element
-  { id: "notion",   icon: <img src="/logos/Notion%20Logo.svg" alt="Notion" width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Notion",   event: "Add to Database",     type: "action"  as const, color: "#000"    },
+  { id: "notion",   icon: <img src="/logos/notion.svg"  alt="Notion"  width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Notion",   event: "Add to Database",     type: "action"  as const, color: "#000"    },
   // eslint-disable-next-line @next/next/no-img-element
-  { id: "slack",    icon: <img src="/logos/Slack%20Logo.svg"  alt="Slack"  width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Slack",    event: "Notify Sales Team",   type: "action"  as const, color: "#4A154B" },
-  { id: "calendar", icon: <CalendarIcon2 />,                                                                                                                   label: "Calendar", event: "Book Follow-up",      type: "action"  as const, color: "#4285F4" },
+  { id: "slack",    icon: <img src="/logos/slack.svg"   alt="Slack"   width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Slack",    event: "Notify Sales Team",   type: "action"  as const, color: "#4A154B" },
+  { id: "calendar", icon: <CalendarIcon2 />,                                                                                                              label: "Calendar", event: "Book Follow-up",      type: "action"  as const, color: "#4285F4" },
 ];
 
 const STEP_MS = 1000;
@@ -117,7 +117,6 @@ function Node({
         boxShadow: active ? "0 8px 24px rgba(99,207,111,0.25)" : "0 1px 4px rgba(0,0,0,0.06)",
       }}
     >
-      {/* Step number */}
       <div
         style={{
           position: "absolute",
@@ -148,7 +147,6 @@ function Node({
         )}
       </div>
 
-      {/* Type badge */}
       <div
         style={{
           display: "inline-flex",
@@ -167,7 +165,6 @@ function Node({
         {typeLabel}
       </div>
 
-      {/* Icon + label */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
         <div style={{ flexShrink: 0 }}>{step.icon}</div>
         <span style={{ fontFamily: "var(--font-outfit)", fontWeight: 700, fontSize: "13px", color: "#000" }}>
@@ -175,7 +172,6 @@ function Node({
         </span>
       </div>
 
-      {/* Event */}
       <p
         style={{
           fontFamily: "var(--font-jakarta)",
@@ -189,7 +185,6 @@ function Node({
         {step.event}
       </p>
 
-      {/* Spinner */}
       {active && (
         <div
           style={{
@@ -315,7 +310,6 @@ export default function WorkflowVisualiser() {
               overflowX: "auto",
             }}
           >
-            {/* Status bar */}
             <div
               style={{
                 display: "flex",
@@ -390,7 +384,6 @@ export default function WorkflowVisualiser() {
               </button>
             </div>
 
-            {/* Nodes */}
             <div style={{ display: "flex", alignItems: "center", minWidth: "min-content", margin: "0 auto" }}>
               {STEPS.map((step, i) => (
                 <div key={step.id} style={{ display: "flex", alignItems: "center" }}>
@@ -402,7 +395,6 @@ export default function WorkflowVisualiser() {
               ))}
             </div>
 
-            {/* Completion banner */}
             <AnimatePresence>
               {completed.size === STEPS.length && !running && (
                 <motion.div

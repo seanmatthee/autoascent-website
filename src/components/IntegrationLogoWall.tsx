@@ -1,24 +1,23 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const tools = [
-  { name: "Zapier",          file: "zapier logo.svg"          },
-  { name: "Make",            file: "make.com logo.svg"        },
-  { name: "Gmail",           file: "Gmail Logo.svg"           },
-  { name: "Notion",          file: "Notion Logo.svg"          },
-  { name: "Slack",           file: "Slack Logo.svg"           },
-  { name: "Google Sheets",   file: "googlesheets logo.svg"    },
-  { name: "Airtable",        file: "Airtable Logo.svg"        },
-  { name: "HubSpot",         file: "HubSpot Logo.svg"         },
-  { name: "WhatsApp",        file: "Whatsapp Logo.svg"        },
-  { name: "Stripe",          file: "Stripe Logo.svg"          },
-  { name: "Shopify",         file: "Shopify Logo.svg"         },
-  { name: "Calendly",        file: "Calendly Logo.svg"        },
-  { name: "Typeform",        file: "Typeform Logo.svg"        },
-  { name: "ActiveCampaign",  file: "ActiveCampaign Logo.svg"  },
+  { name: "Zapier",          file: "zapier.svg"          },
+  { name: "Make",            file: "make.svg"            },
+  { name: "Gmail",           file: "gmail.svg"           },
+  { name: "Notion",          file: "notion.svg"          },
+  { name: "Slack",           file: "slack.svg"           },
+  { name: "Google Sheets",   file: "googlesheets.svg"    },
+  { name: "Airtable",        file: "airtable.svg"        },
+  { name: "HubSpot",         file: "hubspot.svg"         },
+  { name: "WhatsApp",        file: "whatsapp.svg"        },
+  { name: "Stripe",          file: "stripe.svg"          },
+  { name: "Shopify",         file: "shopify.svg"         },
+  { name: "Calendly",        file: "calendly.svg"        },
+  { name: "Typeform",        file: "typeform.svg"        },
+  { name: "ActiveCampaign",  file: "activecampaign.svg"  },
 ];
 
 function LogoCard({ tool }: { tool: (typeof tools)[0] }) {
-  const encodedFile = tool.file.replace(/ /g, "%20");
   return (
     <div
       aria-label={tool.name}
@@ -36,7 +35,7 @@ function LogoCard({ tool }: { tool: (typeof tools)[0] }) {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`/logos/${encodedFile}`}
+        src={`/logos/${tool.file}`}
         alt={tool.name}
         width={28}
         height={28}
