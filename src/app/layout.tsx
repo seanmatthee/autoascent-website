@@ -24,7 +24,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://auto-ascent.us"),
+  metadataBase: new URL("https://www.auto-ascent.us"),
 
   title: {
     default: "AutoAscent",
@@ -52,18 +52,18 @@ export const metadata: Metadata = {
     "digital services agency",
   ],
 
-  authors: [{ name: "AutoAscent", url: "https://auto-ascent.us" }],
+  authors: [{ name: "AutoAscent", url: "https://www.auto-ascent.us" }],
   creator: "AutoAscent",
   publisher: "AutoAscent",
 
   alternates: {
-    canonical: "https://auto-ascent.us",
+    canonical: "https://www.auto-ascent.us",
   },
 
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://auto-ascent.us",
+    url: "https://www.auto-ascent.us",
     siteName: "AutoAscent",
     title: "AutoAscent | Web Design & Automation for Businesses Worldwide",
     description:

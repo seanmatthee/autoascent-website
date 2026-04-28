@@ -8,22 +8,52 @@ import AboutWhy from "@/components/AboutWhy";
 export const metadata: Metadata = {
   title: "About Us — Web Design & Automation Agency",
   description:
-    "AutoAscent builds custom websites and Zapier automation workflows for businesses worldwide. Learn about our approach: free discovery call, clear scoping, and work that actually delivers results.",
+    "Learn how AutoAscent builds custom websites and Zapier automation workflows for businesses worldwide. Free discovery call, clear scoping, real results.",
   alternates: {
-    canonical: "https://auto-ascent.us/about",
+    canonical: "https://www.auto-ascent.us/about",
   },
   openGraph: {
     title: "About AutoAscent — Web Design & Automation Agency",
     description:
       "We build websites and automation workflows for businesses worldwide. One team, two services, zero fluff.",
-    url: "https://auto-ascent.us/about",
+    url: "https://www.auto-ascent.us/about",
     images: [{ url: "/og", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About AutoAscent — Web Design & Automation Agency",
+    description:
+      "We build websites and automation workflows for businesses worldwide. One team, two services, zero fluff.",
+    images: ["/og"],
   },
 };
 
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "AutoAscent",
+            url: "https://www.auto-ascent.us",
+            description:
+              "Custom websites and Zapier automation workflows for businesses worldwide.",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Centurion",
+              addressCountry: "ZA",
+            },
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer service",
+              email: "seanmatthee@auto-ascent.us",
+            },
+          }),
+        }}
+      />
       {/* Page Hero */}
       <section
         style={{

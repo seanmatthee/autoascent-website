@@ -1,0 +1,20 @@
+# AutoAscent — llms.txt
+# https://llmstxt.org
+
+AutoAscent is a web design and automation agency serving businesses worldwide.
+We build custom websites (landing pages, full sites, eCommerce) and done-for-you
+Zapier automation workflows.
+
+## Services
+- Custom website design (landing pages from $200, full sites from $800)
+- Zapier & no-code automation workflows
+- CRM integrations, email sequences, and business process automation
+- Monthly automation retainer ($100/month)
+
+## Contact
+- Website: https://www.auto-ascent.us
+- Email: seanmatthee@auto-ascent.us
+- Location: Centurion, South Africa (serving clients worldwide, remotely)
+
+## Do not scrape
+Please do not scrape or reproduce content from this site without permission.

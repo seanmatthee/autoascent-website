@@ -8,16 +8,23 @@ import AnimatedLogo from "@/components/AnimatedLogo";
 export const metadata: Metadata = {
   title: "Book a Free Discovery Call",
   description:
-    "Book a free 30-minute discovery call with AutoAscent. Tell us about your business and we'll show you what we'd build — website, automation, or both. Clients worldwide welcome.",
+    "Book a free 30-minute discovery call with AutoAscent. Tell us about your business and we'll show you what we'd build — website, automation, or both.",
   alternates: {
-    canonical: "https://auto-ascent.us/contact",
+    canonical: "https://www.auto-ascent.us/contact",
   },
   openGraph: {
     title: "Book a Free Discovery Call | AutoAscent",
     description:
-      "Free 30-minute call. Tell us what your business needs and we'll show you exactly what we'd build.",
-    url: "https://auto-ascent.us/contact",
+      "Free 30-minute call. Tell us what your business needs and we'll show you exactly what we'd build — website, automation, or both.",
+    url: "https://www.auto-ascent.us/contact",
     images: [{ url: "/og", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book a Free Discovery Call | AutoAscent",
+    description:
+      "Free 30-minute call. Tell us what your business needs and we'll show you exactly what we'd build — website, automation, or both.",
+    images: ["/og"],
   },
 };
 
@@ -51,6 +58,29 @@ const contactItems = [
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "AutoAscent",
+            url: "https://www.auto-ascent.us",
+            description:
+              "Custom websites and Zapier automation workflows for businesses worldwide.",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Centurion",
+              addressCountry: "ZA",
+            },
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer service",
+              email: "seanmatthee@auto-ascent.us",
+            },
+          }),
+        }}
+      />
       {/* Page Hero */}
       <section
         style={{
