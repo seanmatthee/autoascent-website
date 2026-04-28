@@ -240,17 +240,48 @@ export default function PricingSection() {
 
         <AnimatedSection delay={0.3}>
           <div style={{ textAlign: "center", marginTop: "48px" }}>
-            <p
+            <div
               style={{
-                fontFamily: "var(--font-jakarta)",
-                fontSize: "15px",
-                color: "#888",
-                marginBottom: "24px",
-                lineHeight: 1.6,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                background: "#F9FAFB",
+                border: "1.5px solid #E5E7EB",
+                borderRadius: "12px",
+                padding: "12px 20px",
+                marginBottom: "28px",
+                maxWidth: "560px",
               }}
             >
-              Prices shown in USD. All projects are scoped on a free discovery call — final price confirmed before any work begins.
-            </p>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#63CF6F"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ flexShrink: 0 }}
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <p
+                style={{
+                  fontFamily: "var(--font-jakarta)",
+                  fontSize: "14px",
+                  color: "#555",
+                  lineHeight: 1.6,
+                  margin: 0,
+                  maxWidth: "none",
+                  textAlign: "left",
+                }}
+              >
+                Prices in USD. Every project is scoped on a free discovery call — final price confirmed before work begins.
+              </p>
+            </div>
             <Link
               href="/contact"
               style={{

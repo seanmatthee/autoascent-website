@@ -1,20 +1,21 @@
+import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const tools = [
-  { name: "Zapier",         color: "#FF4A00", bg: "#FFF0EB", icon: "Z"  },
-  { name: "Make",           color: "#6D00CC", bg: "#F4EBFF", icon: "M"  },
-  { name: "Gmail",          color: "#EA4335", bg: "#FEECEB", icon: "G"  },
-  { name: "Notion",         color: "#000000", bg: "#F5F5F5", icon: "N"  },
-  { name: "Slack",          color: "#4A154B", bg: "#F5EBF5", icon: "S"  },
-  { name: "Google Sheets",  color: "#0F9D58", bg: "#E8F9F1", icon: "Sh" },
-  { name: "Airtable",       color: "#FCB400", bg: "#FFF8E1", icon: "At" },
-  { name: "HubSpot",        color: "#FF7A59", bg: "#FFF0EB", icon: "H"  },
-  { name: "WhatsApp",       color: "#25D366", bg: "#E8FFF1", icon: "W"  },
-  { name: "Stripe",         color: "#635BFF", bg: "#EFEEFC", icon: "St" },
-  { name: "Shopify",        color: "#5C6AC4", bg: "#ECEFFE", icon: "Sh" },
-  { name: "Calendly",       color: "#006BFF", bg: "#E5F0FF", icon: "C"  },
-  { name: "Typeform",       color: "#262627", bg: "#F5F5F5", icon: "Tf" },
-  { name: "ActiveCampaign", color: "#004CFF", bg: "#E5EEFF", icon: "Ac" },
+  { name: "Zapier",          file: "zapier logo.svg"          },
+  { name: "Make",            file: "make.com logo.svg"        },
+  { name: "Gmail",           file: "Gmail Logo.svg"           },
+  { name: "Notion",          file: "Notion Logo.svg"          },
+  { name: "Slack",           file: "Slack Logo.svg"           },
+  { name: "Google Sheets",   file: "googlesheets logo.svg"    },
+  { name: "Airtable",        file: "Airtable Logo.svg"        },
+  { name: "HubSpot",         file: "HubSpot Logo.svg"         },
+  { name: "WhatsApp",        file: "Whatsapp Logo.svg"        },
+  { name: "Stripe",          file: "Stripe Logo.svg"          },
+  { name: "Shopify",         file: "Shopify Logo.svg"         },
+  { name: "Calendly",        file: "Calendly Logo.svg"        },
+  { name: "Typeform",        file: "Typeform Logo.svg"        },
+  { name: "ActiveCampaign",  file: "ActiveCampaign Logo.svg"  },
 ];
 
 function LogoCard({ tool }: { tool: (typeof tools)[0] }) {
@@ -35,23 +36,22 @@ function LogoCard({ tool }: { tool: (typeof tools)[0] }) {
     >
       <div
         style={{
-          width: 32,
-          height: 32,
-          borderRadius: "8px",
-          background: tool.bg,
-          border: `1.5px solid ${tool.color}22`,
+          width: 28,
+          height: 28,
+          flexShrink: 0,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: "var(--font-outfit)",
-          fontWeight: 800,
-          fontSize: "12px",
-          color: tool.color,
-          letterSpacing: "-0.02em",
-          flexShrink: 0,
+          position: "relative",
         }}
       >
-        {tool.icon}
+        <Image
+          src={`/logos/${tool.file}`}
+          alt={tool.name}
+          width={28}
+          height={28}
+          style={{ objectFit: "contain" }}
+        />
       </div>
       <span
         style={{

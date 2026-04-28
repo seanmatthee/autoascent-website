@@ -2,38 +2,14 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
-
-const GmailIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-    <rect width="24" height="24" rx="4" fill="#EA4335" />
-    <path d="M4 7.5L12 13.5L20 7.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-    <rect x="4" y="7" width="16" height="12" rx="1" stroke="white" strokeWidth="1.5" fill="none" />
-  </svg>
-);
 
 const FilterIcon2 = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
     <rect width="24" height="24" rx="4" fill="#63CF6F" />
     <path d="M4 6h16M7 12h10M10 18h4" stroke="white" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
-
-const NotionIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-    <rect width="24" height="24" rx="4" fill="#000" />
-    <path d="M6 6h5l7 9V6M13 15v3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-const SlackIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-    <rect width="24" height="24" rx="4" fill="#4A154B" />
-    <circle cx="8.5" cy="9.5" r="1.5" fill="#ECB22E" />
-    <circle cx="15.5" cy="9.5" r="1.5" fill="#2EB67D" />
-    <circle cx="8.5" cy="14.5" r="1.5" fill="#E01E5A" />
-    <circle cx="15.5" cy="14.5" r="1.5" fill="#36C5F0" />
   </svg>
 );
 
@@ -48,11 +24,11 @@ const CalendarIcon2 = () => (
 );
 
 const STEPS = [
-  { id: "gmail",    icon: <GmailIcon />,     label: "Gmail",    event: "New Form Submission", type: "trigger" as const, color: "#EA4335" },
-  { id: "filter",   icon: <FilterIcon2 />,   label: "Filter",   event: "Qualify Lead Score",  type: "filter"  as const, color: "#63CF6F" },
-  { id: "notion",   icon: <NotionIcon />,    label: "Notion",   event: "Add to Database",     type: "action"  as const, color: "#000"    },
-  { id: "slack",    icon: <SlackIcon />,     label: "Slack",    event: "Notify Sales Team",   type: "action"  as const, color: "#4A154B" },
-  { id: "calendar", icon: <CalendarIcon2 />, label: "Calendar", event: "Book Follow-up",      type: "action"  as const, color: "#4285F4" },
+  { id: "gmail",    icon: <Image src="/logos/Gmail Logo.svg"  alt="Gmail"  width={22} height={22} style={{ objectFit: "contain" }} />, label: "Gmail",    event: "New Form Submission", type: "trigger" as const, color: "#EA4335" },
+  { id: "filter",   icon: <FilterIcon2 />,                                                                                              label: "Filter",   event: "Qualify Lead Score",  type: "filter"  as const, color: "#63CF6F" },
+  { id: "notion",   icon: <Image src="/logos/Notion Logo.svg" alt="Notion" width={22} height={22} style={{ objectFit: "contain" }} />, label: "Notion",   event: "Add to Database",     type: "action"  as const, color: "#000"    },
+  { id: "slack",    icon: <Image src="/logos/Slack Logo.svg"  alt="Slack"  width={22} height={22} style={{ objectFit: "contain" }} />, label: "Slack",    event: "Notify Sales Team",   type: "action"  as const, color: "#4A154B" },
+  { id: "calendar", icon: <CalendarIcon2 />,                                                                                            label: "Calendar", event: "Book Follow-up",      type: "action"  as const, color: "#4285F4" },
 ];
 
 const STEP_MS = 1000;
@@ -456,9 +432,26 @@ export default function WorkflowVisualiser() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.25}>
-          <p style={{ textAlign: "center", fontFamily: "var(--font-jakarta)", fontSize: "14px", color: "#888", marginTop: "20px" }}>
-            This is a real workflow pattern we build for clients. Yours will be scoped to your exact tools and business logic.
-          </p>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "24px" }}>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "#F9FAFB",
+                border: "1.5px solid #E5E7EB",
+                borderRadius: "999px",
+                padding: "8px 18px",
+              }}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#63CF6F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span style={{ fontFamily: "var(--font-jakarta)", fontSize: "13px", color: "#555", fontWeight: 500 }}>
+                Real workflow pattern — scoped to your exact tools and business logic
+              </span>
+            </div>
+          </div>
         </AnimatedSection>
       </div>
     </section>

@@ -7,6 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/next";
 import PrivacyBanner from "@/components/PrivacyBanner";
+import CustomCursor from "@/components/CustomCursor";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -111,6 +112,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${jakarta.variable}`}>
       <body className="min-h-screen flex flex-col">
+        <CustomCursor />
         <JsonLd />
         <Navbar />
         <main className="flex-1">{children}</main>
