@@ -1,4 +1,3 @@
-import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const tools = [
@@ -19,6 +18,7 @@ const tools = [
 ];
 
 function LogoCard({ tool }: { tool: (typeof tools)[0] }) {
+  const encodedFile = tool.file.replace(/ /g, "%20");
   return (
     <div
       aria-label={tool.name}
@@ -34,25 +34,14 @@ function LogoCard({ tool }: { tool: (typeof tools)[0] }) {
         userSelect: "none",
       }}
     >
-      <div
-        style={{
-          width: 28,
-          height: 28,
-          flexShrink: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-        }}
-      >
-        <Image
-          src={`/logos/${tool.file}`}
-          alt={tool.name}
-          width={28}
-          height={28}
-          style={{ objectFit: "contain" }}
-        />
-      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/logos/${encodedFile}`}
+        alt={tool.name}
+        width={28}
+        height={28}
+        style={{ objectFit: "contain", width: 28, height: 28, flexShrink: 0 }}
+      />
       <span
         style={{
           fontFamily: "var(--font-jakarta)",
@@ -153,8 +142,10 @@ export default function IntegrationLogoWall() {
             fontFamily: "var(--font-jakarta)",
             fontSize: "14px",
             color: "#888",
-            marginTop: "32px",
+            margin: "32px auto 0",
             padding: "0 24px",
+            maxWidth: "none",
+            width: "100%",
           }}
         >
           Don&apos;t see your tool? We likely support it.{" "}

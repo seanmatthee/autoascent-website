@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -24,11 +23,14 @@ const CalendarIcon2 = () => (
 );
 
 const STEPS = [
-  { id: "gmail",    icon: <Image src="/logos/Gmail Logo.svg"  alt="Gmail"  width={22} height={22} style={{ objectFit: "contain" }} />, label: "Gmail",    event: "New Form Submission", type: "trigger" as const, color: "#EA4335" },
-  { id: "filter",   icon: <FilterIcon2 />,                                                                                              label: "Filter",   event: "Qualify Lead Score",  type: "filter"  as const, color: "#63CF6F" },
-  { id: "notion",   icon: <Image src="/logos/Notion Logo.svg" alt="Notion" width={22} height={22} style={{ objectFit: "contain" }} />, label: "Notion",   event: "Add to Database",     type: "action"  as const, color: "#000"    },
-  { id: "slack",    icon: <Image src="/logos/Slack Logo.svg"  alt="Slack"  width={22} height={22} style={{ objectFit: "contain" }} />, label: "Slack",    event: "Notify Sales Team",   type: "action"  as const, color: "#4A154B" },
-  { id: "calendar", icon: <CalendarIcon2 />,                                                                                            label: "Calendar", event: "Book Follow-up",      type: "action"  as const, color: "#4285F4" },
+  // eslint-disable-next-line @next/next/no-img-element
+  { id: "gmail",    icon: <img src="/logos/Gmail%20Logo.svg"  alt="Gmail"  width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Gmail",    event: "New Form Submission", type: "trigger" as const, color: "#EA4335" },
+  { id: "filter",   icon: <FilterIcon2 />,                                                                                                                     label: "Filter",   event: "Qualify Lead Score",  type: "filter"  as const, color: "#63CF6F" },
+  // eslint-disable-next-line @next/next/no-img-element
+  { id: "notion",   icon: <img src="/logos/Notion%20Logo.svg" alt="Notion" width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Notion",   event: "Add to Database",     type: "action"  as const, color: "#000"    },
+  // eslint-disable-next-line @next/next/no-img-element
+  { id: "slack",    icon: <img src="/logos/Slack%20Logo.svg"  alt="Slack"  width={22} height={22} style={{ objectFit: "contain", width: 22, height: 22 }} />, label: "Slack",    event: "Notify Sales Team",   type: "action"  as const, color: "#4A154B" },
+  { id: "calendar", icon: <CalendarIcon2 />,                                                                                                                   label: "Calendar", event: "Book Follow-up",      type: "action"  as const, color: "#4285F4" },
 ];
 
 const STEP_MS = 1000;
