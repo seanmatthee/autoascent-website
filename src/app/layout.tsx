@@ -3,7 +3,6 @@ import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/next";
 import PrivacyBanner from "@/components/PrivacyBanner";
@@ -113,7 +112,6 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} ${jakarta.variable}`}>
       <body className="min-h-screen flex flex-col">
         <CustomCursor />
-        <JsonLd />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

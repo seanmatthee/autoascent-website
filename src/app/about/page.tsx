@@ -41,6 +41,9 @@ export default function AboutPage() {
             url: "https://www.auto-ascent.us",
             description:
               "Custom websites and Zapier automation workflows for businesses worldwide.",
+            telephone: "+27713854935",
+            founder: { "@type": "Person", name: "Sean Matthee" },
+            sameAs: ["https://twitter.com/autoascent"],
             address: {
               "@type": "PostalAddress",
               addressLocality: "Centurion",

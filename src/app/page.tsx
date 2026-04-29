@@ -14,7 +14,7 @@ import IntegrationLogoWall from "@/components/IntegrationLogoWall";
 export const metadata: Metadata = {
   title: { absolute: "Web Design & Automation for Businesses Worldwide | AutoAscent" },
   description:
-    "AutoAscent builds custom websites and Zapier automation workflows for businesses worldwide. Landing pages, eCommerce, CRM integrations, and more. Free discovery call.",
+    "Custom websites and Zapier automation for businesses worldwide. Landing pages, eCommerce, CRM integrations, and more. Free discovery call.",
   alternates: {
     canonical: "https://www.auto-ascent.us",
   },
@@ -38,10 +38,13 @@ export default function Home() {
             "@type": "ProfessionalService",
             name: "AutoAscent",
             url: "https://www.auto-ascent.us",
-            logo: "https://www.auto-ascent.us/og",
+            logo: "https://www.auto-ascent.us/logo-white.png",
             description:
               "Custom websites and Zapier automation workflows for businesses worldwide.",
+            telephone: "+27713854935",
             areaServed: "Worldwide",
+            founder: { "@type": "Person", name: "Sean Matthee" },
+            sameAs: ["https://twitter.com/autoascent"],
             address: {
               "@type": "PostalAddress",
               addressLocality: "Centurion",
@@ -51,6 +54,28 @@ export default function Home() {
               "@type": "ContactPoint",
               contactType: "customer service",
               email: "seanmatthee@auto-ascent.us",
+            },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Services",
+              itemListElement: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Custom Website Design",
+                    description: "Landing pages from $200, full sites from $800.",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Zapier Workflow Automation",
+                    description: "Done-for-you Zapier automation workflows. Monthly retainer from $100/month.",
+                  },
+                },
+              ],
             },
           }),
         }}

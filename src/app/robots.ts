@@ -9,6 +9,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://www.auto-ascent.us/sitemap.xml",
-    host: "https://www.auto-ascent.us",
   };
 }

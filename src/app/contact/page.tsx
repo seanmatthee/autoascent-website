@@ -8,7 +8,7 @@ import AnimatedLogo from "@/components/AnimatedLogo";
 export const metadata: Metadata = {
   title: "Book a Free Discovery Call",
   description:
-    "Book a free 30-minute discovery call with AutoAscent. Tell us about your business and we'll show you what we'd build — website, automation, or both.",
+    "Book a free 30-minute discovery call with AutoAscent. Tell us what you need and we'll show you exactly what we'd build.",
   alternates: {
     canonical: "https://www.auto-ascent.us/contact",
   },
@@ -68,6 +68,9 @@ export default function ContactPage() {
             url: "https://www.auto-ascent.us",
             description:
               "Custom websites and Zapier automation workflows for businesses worldwide.",
+            telephone: "+27713854935",
+            founder: { "@type": "Person", name: "Sean Matthee" },
+            sameAs: ["https://twitter.com/autoascent"],
             address: {
               "@type": "PostalAddress",
               addressLocality: "Centurion",
