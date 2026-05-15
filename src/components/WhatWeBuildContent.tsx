@@ -23,7 +23,7 @@ interface Tier {
 const WEB_TIERS: Tier[] = [
   {
     name: "Landing Page",
-    price: "From R3,500",
+    price: "From R2,000",
     tag: "Starting price",
     popular: false,
     description:
@@ -38,7 +38,7 @@ const WEB_TIERS: Tier[] = [
   },
   {
     name: "Full Website",
-    price: "From R14,500",
+    price: "From R10,000",
     tag: "Starting price",
     popular: true,
     description:
@@ -53,7 +53,7 @@ const WEB_TIERS: Tier[] = [
   },
   {
     name: "Custom Web App",
-    price: "From R36,000",
+    price: "From R30,000",
     tag: "Scoped per project",
     popular: false,
     description:

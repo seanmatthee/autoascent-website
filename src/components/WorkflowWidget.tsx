@@ -120,20 +120,135 @@ export default function WorkflowWidget() {
         @keyframes aa-spin  { to { transform:rotate(360deg); } }
         @keyframes aa-live  { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
         @media (prefers-reduced-motion:reduce) { [data-aa] { animation:none !important; transition:none !important; } }
+
+        .aa-widget {
+          width: 100%;
+          background: #FFFFFF;
+          border: 1px solid #E5E7EB;
+          border-radius: 16px;
+          padding: 16px 16px 20px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+          font-family: "Plus Jakarta Sans","Inter",system-ui,sans-serif;
+          user-select: none;
+        }
+
+        .aa-steps-container {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .aa-step-item {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .aa-step-card {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 10px;
+          border-radius: 10px;
+          transition: background 0.3s, border-color 0.3s;
+        }
+
+        .aa-conn {
+          position: relative;
+          height: 32px;
+          width: 2px;
+          margin-left: 24px;
+        }
+
+        .aa-conn-line {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 2px;
+          border-radius: 1px;
+          transition: background 0.4s;
+        }
+
+        .aa-conn-line.active {
+          background: repeating-linear-gradient(to bottom, #22C55E 0px, #22C55E 4px, transparent 4px, transparent 9px);
+        }
+
+        .aa-conn-line.inactive {
+          background: repeating-linear-gradient(to bottom, #E5E7EB 0px, #E5E7EB 4px, transparent 4px, transparent 9px);
+        }
+
+        .aa-conn-dot {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #22C55E;
+          box-shadow: 0 0 0 2.5px #DCFCE7;
+          transition: opacity 0.4s;
+          z-index: 1;
+        }
+
+        @media (max-width: 767px) {
+          .aa-widget {
+            max-width: 300px;
+            margin: 0 auto;
+          }
+          .aa-conn-dot {
+            top: var(--dot-pos);
+          }
+        }
+
+        @media (min-width: 768px) {
+          .aa-widget {
+            max-width: 100%;
+            overflow-x: auto;
+          }
+          .aa-steps-container {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .aa-step-item {
+            flex-direction: row;
+            align-items: center;
+            flex: 1;
+          }
+          .aa-step-item:last-child {
+            flex: 0;
+          }
+          .aa-step-card {
+            flex-shrink: 0;
+          }
+          .aa-conn {
+            height: 2px;
+            width: auto;
+            flex: 1;
+            min-width: 20px;
+            margin-left: 8px;
+            margin-right: 8px;
+          }
+          .aa-conn-line {
+            width: 100%;
+            height: 2px;
+            bottom: auto;
+          }
+          .aa-conn-line.active {
+            background: repeating-linear-gradient(to right, #22C55E 0px, #22C55E 4px, transparent 4px, transparent 9px);
+          }
+          .aa-conn-line.inactive {
+            background: repeating-linear-gradient(to right, #E5E7EB 0px, #E5E7EB 4px, transparent 4px, transparent 9px);
+          }
+          .aa-conn-dot {
+            top: 50% !important;
+            left: var(--dot-pos);
+          }
+        }
       `}</style>
       <aside
         data-aa
+        className="aa-widget"
         aria-label="AutoAscent workflow automation preview"
-        style={{
-          width:'100%', maxWidth:300,
-          background:'#FFFFFF',
-          border:'1px solid #E5E7EB',
-          borderRadius:16,
-          padding:'16px 16px 20px',
-          boxShadow:'0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)',
-          fontFamily:'"Plus Jakarta Sans","Inter",system-ui,sans-serif',
-          userSelect:'none',
-        }}
       >
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:16, paddingBottom:12, borderBottom:'1px solid #F3F4F6' }}>
           <span style={{ fontSize:11, fontWeight:700, color:'#111827', letterSpacing:'-0.01em' }}>Automation</span>
@@ -143,41 +258,55 @@ export default function WorkflowWidget() {
           </span>
         </div>
 
-        {STEPS.map((step, i) => {
-          const isActive    = active === i
-          const isCompleted = completed.has(i)
-          return (
-            <div key={step.id}>
-              <div style={{ display:'flex', alignItems:'center', gap:10, padding:'8px 10px', borderRadius:10, background: isActive ? '#F0FDF4' : isCompleted ? '#FAFFFE' : 'transparent', border:`1px solid ${isActive ? '#86EFAC' : isCompleted ? '#D1FAE5' : 'transparent'}`, transition:'background 0.3s, border-color 0.3s' }}>
-                <div style={{ position:'relative', flexShrink:0 }}>
-                  {isActive && <div style={{ position:'absolute', inset:-3, borderRadius:'50%', border:'1.5px solid #22C55E', animation:'aa-pulse 1.2s ease-out infinite' }} />}
-                  <div style={{ width:30, height:30, borderRadius:'50%', background: isActive ? '#22C55E' : isCompleted ? '#DCFCE7' : '#F3F4F6', display:'flex', alignItems:'center', justifyContent:'center', color: isActive ? '#fff' : isCompleted ? '#16A34A' : '#9CA3AF', transition:'background 0.3s, color 0.3s', flexShrink:0 }}>
-                    {step.icon}
+        <div className="aa-steps-container">
+          {STEPS.map((step, i) => {
+            const isActive    = active === i
+            const isCompleted = completed.has(i)
+            return (
+              <div key={step.id} className="aa-step-item">
+                <div 
+                  className="aa-step-card"
+                  style={{ 
+                    background: isActive ? '#F0FDF4' : isCompleted ? '#FAFFFE' : 'transparent', 
+                    border:`1px solid ${isActive ? '#86EFAC' : isCompleted ? '#D1FAE5' : 'transparent'}` 
+                  }}
+                >
+                  <div style={{ position:'relative', flexShrink:0 }}>
+                    {isActive && <div style={{ position:'absolute', inset:-3, borderRadius:'50%', border:'1.5px solid #22C55E', animation:'aa-pulse 1.2s ease-out infinite' }} />}
+                    <div style={{ width:30, height:30, borderRadius:'50%', background: isActive ? '#22C55E' : isCompleted ? '#DCFCE7' : '#F3F4F6', display:'flex', alignItems:'center', justifyContent:'center', color: isActive ? '#fff' : isCompleted ? '#16A34A' : '#9CA3AF', transition:'background 0.3s, color 0.3s', flexShrink:0 }}>
+                      {step.icon}
+                    </div>
+                  </div>
+                  <div style={{ flex:1, minWidth:0, overflow:'hidden' }}>
+                    <p style={{ fontSize:9, fontWeight:600, letterSpacing:'0.08em', textTransform:'uppercase', color: isActive ? '#16A34A' : '#9CA3AF', margin:0, marginBottom:1, transition:'color 0.3s' }}>{step.app}</p>
+                    <p style={{ fontSize:12, fontWeight:600, color: isActive ? '#0A0A0A' : isCompleted ? '#374151' : '#6B7280', margin:0, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis', transition:'color 0.3s', letterSpacing:'-0.01em' }}>{step.event}</p>
+                  </div>
+                  <div style={{ flexShrink:0, width:18, display:'flex', alignItems:'center', justifyContent:'center' }}>
+                    {isCompleted ? (
+                      <div style={{ width:18, height:18, borderRadius:'50%', background:'#22C55E', display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', animation:'aa-check 0.3s cubic-bezier(0.34,1.56,0.64,1) both' }}><CheckIcon /></div>
+                    ) : isActive ? (
+                      <div style={{ width:14, height:14, borderRadius:'50%', border:'2px solid #BBF7D0', borderTopColor:'#22C55E', animation:'aa-spin 0.7s linear infinite' }} />
+                    ) : (
+                      <div style={{ width:7, height:7, borderRadius:'50%', background:'#E5E7EB' }} />
+                    )}
                   </div>
                 </div>
-                <div style={{ flex:1, minWidth:0, overflow:'hidden' }}>
-                  <p style={{ fontSize:9, fontWeight:600, letterSpacing:'0.08em', textTransform:'uppercase', color: isActive ? '#16A34A' : '#9CA3AF', margin:0, marginBottom:1, transition:'color 0.3s' }}>{step.app}</p>
-                  <p style={{ fontSize:12, fontWeight:600, color: isActive ? '#0A0A0A' : isCompleted ? '#374151' : '#6B7280', margin:0, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis', transition:'color 0.3s', letterSpacing:'-0.01em' }}>{step.event}</p>
-                </div>
-                <div style={{ flexShrink:0, width:18, display:'flex', alignItems:'center', justifyContent:'center' }}>
-                  {isCompleted ? (
-                    <div style={{ width:18, height:18, borderRadius:'50%', background:'#22C55E', display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', animation:'aa-check 0.3s cubic-bezier(0.34,1.56,0.64,1) both' }}><CheckIcon /></div>
-                  ) : isActive ? (
-                    <div style={{ width:14, height:14, borderRadius:'50%', border:'2px solid #BBF7D0', borderTopColor:'#22C55E', animation:'aa-spin 0.7s linear infinite' }} />
-                  ) : (
-                    <div style={{ width:7, height:7, borderRadius:'50%', background:'#E5E7EB' }} />
-                  )}
-                </div>
+                {i < STEPS.length - 1 && (
+                  <div className="aa-conn">
+                    <div className={`aa-conn-line ${(isCompleted || active > i) ? 'active' : 'inactive'}`} />
+                    <div 
+                      className="aa-conn-dot"
+                      style={{ 
+                        opacity: (isCompleted || active > i) ? 1 : 0.25,
+                        '--dot-pos': `${dotPos[i]*100}%` 
+                      } as React.CSSProperties} 
+                    />
+                  </div>
+                )}
               </div>
-              {i < STEPS.length - 1 && (
-                <div style={{ position:'relative', height:CONN_H, width:2, marginLeft:24 }}>
-                  <div style={{ position:'absolute', top:0, bottom:0, left:0, width:2, background: (isCompleted || active > i) ? 'repeating-linear-gradient(to bottom,#22C55E 0px,#22C55E 4px,transparent 4px,transparent 9px)' : 'repeating-linear-gradient(to bottom,#E5E7EB 0px,#E5E7EB 4px,transparent 4px,transparent 9px)', transition:'background 0.4s', borderRadius:1 }} />
-                  <div style={{ position:'absolute', left:'50%', top:`${dotPos[i]*100}%`, transform:'translate(-50%,-50%)', width:7, height:7, borderRadius:'50%', background:'#22C55E', boxShadow:'0 0 0 2.5px #DCFCE7', opacity:(isCompleted || active > i) ? 1 : 0.25, transition:'opacity 0.4s', zIndex:1 }} />
-                </div>
-              )}
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </aside>
     </>
   )

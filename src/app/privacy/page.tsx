@@ -88,7 +88,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <p style={{ fontFamily: "var(--font-jakarta)", fontSize: "14px", color: "#888", marginBottom: "48px", lineHeight: 1.6, maxWidth: "none" }}>
-          Effective Date: [DATE TO BE UPDATED] · AutoAscent, operated by Sean Matthee · Centurion, Gauteng, South Africa
+          Effective Date: May 15, 2026 · AutoAscent, operated by Sean Matthee · Centurion, Gauteng, South Africa
         </p>
 
         {/* 1 */}
