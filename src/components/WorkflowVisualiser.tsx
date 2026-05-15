@@ -36,51 +36,25 @@ const STEPS = [
 const STEP_MS = 1000;
 
 function Connector({ active, completed }: { active: boolean; completed: boolean }) {
+  const color = completed || active ? "#63CF6F" : "#E5E7EB";
   return (
     <div
-      style={{
-        flex: "0 0 36px",
-        width: "2px",
-        height: "36px",
-        background: completed || active ? "#63CF6F" : "#E5E7EB",
-        position: "relative",
-        alignSelf: "center",
-        transition: "background 0.4s ease",
-        overflow: "visible",
-      }}
+      className="wv-connector"
+      style={{ background: color }}
     >
       <div
-        style={{
-          position: "absolute",
-          bottom: -1,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: 0,
-          height: 0,
-          borderLeft: "5px solid transparent",
-          borderRight: "5px solid transparent",
-          borderTop: `6px solid ${completed || active ? "#63CF6F" : "#E5E7EB"}`,
-          transition: "border-top-color 0.4s ease",
-        }}
+        className="wv-connector-arrow"
+        style={{ '--arrow-color': color } as React.CSSProperties}
       />
       <AnimatePresence>
         {active && (
           <motion.div
             key="dot"
-            initial={{ top: 0, opacity: 1 }}
-            animate={{ top: "100%", opacity: 1 }}
+            className="wv-connector-dot"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: STEP_MS / 1000, ease: "linear" }}
-            style={{
-              position: "absolute",
-              left: "50%",
-              width: 10,
-              height: 10,
-              borderRadius: "50%",
-              background: "#63CF6F",
-              transform: "translate(-50%, -50%)",
-              boxShadow: "0 0 8px #63CF6F",
-            }}
+            transition={{ duration: 0.2 }}
           />
         )}
       </AnimatePresence>
@@ -266,6 +240,105 @@ export default function WorkflowVisualiser() {
       <style>{`
         @keyframes wv-spin  { to { transform: rotate(360deg); } }
         @keyframes wv-pulse { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(2); } }
+        
+        @keyframes wv-dot-v {
+          from { top: 0; }
+          to { top: 100%; }
+        }
+        
+        @keyframes wv-dot-h {
+          from { left: 0; }
+          to { left: 100%; }
+        }
+
+        .wv-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 0 auto;
+          width: max-content;
+          min-width: 100%;
+        }
+
+        .wv-step-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .wv-connector {
+          position: relative;
+          flex: 0 0 36px;
+          width: 2px;
+          height: 36px;
+          align-self: center;
+          transition: background 0.4s ease;
+          overflow: visible;
+        }
+
+        .wv-connector-arrow {
+          position: absolute;
+          transition: border-color 0.4s ease;
+        }
+
+        .wv-connector-dot {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #63CF6F;
+          box-shadow: 0 0 8px #63CF6F;
+        }
+
+        @media (max-width: 1023px) {
+          .wv-container {
+            width: 100%;
+          }
+          .wv-connector-arrow {
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid var(--arrow-color);
+          }
+          .wv-connector-dot {
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: wv-dot-v 1s linear forwards;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .wv-container {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+          }
+          .wv-step-wrapper {
+            flex-direction: row;
+            align-items: center;
+          }
+          .wv-connector {
+            flex: 0 0 40px;
+            width: 40px;
+            height: 2px;
+          }
+          .wv-connector-arrow {
+            right: -1px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 6px solid var(--arrow-color);
+          }
+          .wv-connector-dot {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: wv-dot-h 1s linear forwards;
+          }
+        }
       `}</style>
 
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
@@ -308,6 +381,7 @@ export default function WorkflowVisualiser() {
               border: "1.5px solid #E5E7EB",
               borderRadius: "20px",
               padding: "40px 32px 36px",
+              overflowX: "auto",
             }}
           >
             <div
@@ -384,9 +458,9 @@ export default function WorkflowVisualiser() {
               </button>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
+            <div className="wv-container">
               {STEPS.map((step, i) => (
-                <div key={step.id} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div key={step.id} className="wv-step-wrapper">
                   <Node step={step} active={active === i} completed={completed.has(i)} index={i} />
                   {i < STEPS.length - 1 && (
                     <Connector active={active === i} completed={completed.has(i) && active !== i} />
