@@ -23,7 +23,7 @@ interface Tier {
 const WEB_TIERS: Tier[] = [
   {
     name: "Landing Page",
-    price: "From $200",
+    price: "From R3,500",
     tag: "Starting price",
     popular: false,
     description:
@@ -38,7 +38,7 @@ const WEB_TIERS: Tier[] = [
   },
   {
     name: "Full Website",
-    price: "From $800",
+    price: "From R14,500",
     tag: "Starting price",
     popular: true,
     description:
@@ -53,7 +53,7 @@ const WEB_TIERS: Tier[] = [
   },
   {
     name: "Custom Web App",
-    price: "From $2,000",
+    price: "From R36,000",
     tag: "Scoped per project",
     popular: false,
     description:
@@ -72,7 +72,7 @@ const WEB_TIERS: Tier[] = [
 const AI_TIERS: Tier[] = [
   {
     name: "Single-Agent Workflow",
-    price: "From $500",
+    price: "From R9,000",
     tag: "Starting price",
     popular: false,
     description:
@@ -87,7 +87,7 @@ const AI_TIERS: Tier[] = [
   },
   {
     name: "Multi-Agent Pipeline",
-    price: "From $1,500",
+    price: "From R27,000",
     tag: "Scoped per project",
     popular: true,
     description:
@@ -103,7 +103,7 @@ const AI_TIERS: Tier[] = [
   },
   {
     name: "Full Agentic Stack",
-    price: "From $3,500",
+    price: "From R64,000",
     tag: "Scoped per project",
     popular: false,
     description:

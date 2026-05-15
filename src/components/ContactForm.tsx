@@ -179,11 +179,11 @@ export default function ContactForm() {
     timeWaster: "",
   });
 
-  const [currency, setCurrency] = useState("USD");
+  const [currency, setCurrency] = useState("ZAR");
   const [budgetAmount, setBudgetAmount] = useState("");
   const [hasUserTyped, setHasUserTyped] = useState(false);
 
-  const [currencySearch, setCurrencySearch] = useState("USD");
+  const [currencySearch, setCurrencySearch] = useState("ZAR");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const comboboxRef = useRef<HTMLDivElement>(null);
 
@@ -192,7 +192,6 @@ export default function ContactForm() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const [showConfirm, setShowConfirm] = useState(false);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -241,39 +240,33 @@ export default function ContactForm() {
     return e;
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const errs = validate();
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
-    setShowConfirm(true);
-  }
 
-  async function confirmAndSend() {
-    setShowConfirm(false);
     setIsSubmitting(true);
     setSubmitError("");
 
     const budgetStr = `${budgetAmount} ${currency}${usdEquiv ? ` (≈ ${usdEquiv} USD)` : ""}`;
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          company: form.company,
-          tools: form.tools,
-          timewaster: form.timeWaster,
-          budget: budgetStr,
-        }),
-      });
+    const message =
+      `New AutoAscent enquiry\n\n` +
+      `Name: ${form.name}\n` +
+      `Email: ${form.email}\n` +
+      `Company: ${form.company}\n` +
+      `Current tools: ${form.tools}\n` +
+      `Biggest time-waster: ${form.timeWaster}\n` +
+      `Budget: ${budgetStr}`;
 
-      if (!res.ok) throw new Error("Server error");
+    const whatsappUrl = `https://wa.me/27713854935?text=${encodeURIComponent(message)}`;
+
+    try {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
       setSubmitted(true);
     } catch {
-      setSubmitError("Something went wrong. Please email us directly at seanmatthee@auto-ascent.us");
+      setSubmitError("Couldn't open WhatsApp. Message us at https://wa.me/27713854935");
     } finally {
       setIsSubmitting(false);
     }
@@ -317,10 +310,10 @@ export default function ContactForm() {
             marginBottom: "12px",
           }}
         >
-          Thanks! We'll be in touch within 24 hours.
+          Almost there — send the WhatsApp message.
         </h3>
         <p style={{ color: "#555", fontFamily: "var(--font-jakarta)", fontSize: "16px", maxWidth: "none" }}>
-          We've received your details and will reach out shortly.
+          We opened WhatsApp in a new tab with your details pre-filled. Just hit send and we'll be in touch within 24 hours.
         </p>
       </div>
     );
@@ -542,63 +535,8 @@ export default function ContactForm() {
           e.currentTarget.style.boxShadow = "none";
         }}
       >
-        {isSubmitting ? "Sending..." : "Send My Details →"}
+        {isSubmitting ? "Opening WhatsApp..." : "Send My Details →"}
       </button>
-
-      {showConfirm && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "rgba(0,0,0,0.55)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 100,
-            padding: "24px",
-          }}
-          onClick={() => setShowConfirm(false)}
-        >
-          <div
-            style={{
-              background: "#fff",
-              border: "2px solid #000",
-              borderRadius: "16px",
-              boxShadow: "8px 8px 0px #000",
-              padding: "40px 36px",
-              maxWidth: "420px",
-              width: "100%",
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h3 style={{ fontFamily: "var(--font-outfit)", fontWeight: 800, fontSize: "22px", color: "#000", marginBottom: "12px" }}>
-              Confirm your email
-            </h3>
-            <p style={{ fontFamily: "var(--font-jakarta)", fontSize: "16px", color: "#555", lineHeight: 1.6, marginBottom: "24px", maxWidth: "none" }}>
-              We'll send our reply to:
-            </p>
-            <div style={{ background: "#F5F5F5", border: "2px solid #000", borderRadius: "10px", padding: "14px 18px", fontFamily: "var(--font-outfit)", fontWeight: 700, fontSize: "17px", color: "#000", marginBottom: "28px", wordBreak: "break-all" }}>
-              {form.email}
-            </div>
-            <div style={{ display: "flex", gap: "12px" }}>
-              <button
-                type="button"
-                onClick={() => setShowConfirm(false)}
-                style={{ flex: 1, background: "#fff", border: "2px solid #000", borderRadius: "10px", padding: "14px", fontFamily: "var(--font-outfit)", fontWeight: 600, fontSize: "15px", color: "#000", cursor: "pointer" }}
-              >
-                Go Back
-              </button>
-              <button
-                type="button"
-                onClick={confirmAndSend}
-                style={{ flex: 2, background: "#63CF6F", border: "2px solid #000", borderRadius: "10px", padding: "14px", fontFamily: "var(--font-outfit)", fontWeight: 700, fontSize: "15px", color: "#000", cursor: "pointer" }}
-              >
-                Yes, Send My Details →
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </form>
   );
 }

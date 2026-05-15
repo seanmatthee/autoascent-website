@@ -6,7 +6,7 @@ export default function JsonLd() {
     "@type": "LocalBusiness",
     name: "AutoAscent",
     url: "https://www.auto-ascent.us",
-    email: "seanmatthee@auto-ascent.us",
+    email: "seanmatthee91@gmail.com",
     telephone: "+27713854935",
     address: {
       "@type": "PostalAddress",

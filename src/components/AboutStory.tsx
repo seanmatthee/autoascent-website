@@ -1,15 +1,10 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionLabel from "@/components/ui/SectionLabel";
-import HoursSavedCounter from "@/components/HoursSavedCounter";
 
 export default function AboutStory() {
   return (
     <section style={{ padding: "100px 24px", background: "#fff" }}>
-      <div
-        style={{ maxWidth: "1200px", margin: "0 auto" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
-      >
-        {/* Text */}
+      <div style={{ maxWidth: "780px", margin: "0 auto" }}>
         <AnimatedSection>
           <article>
             <SectionLabel text="OUR STORY" />
@@ -25,20 +20,6 @@ export default function AboutStory() {
               </p>
             </div>
           </article>
-        </AnimatedSection>
-
-        {/* Hours Saved Counter */}
-        <AnimatedSection delay={0.15}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "32px",
-            }}
-          >
-            <HoursSavedCounter />
-          </div>
         </AnimatedSection>
       </div>
     </section>

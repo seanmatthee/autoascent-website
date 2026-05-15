@@ -1,6 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
+
+const QUERY = "(hover: hover) and (pointer: fine)";
+
+function subscribePointer(callback: () => void) {
+  const mq = window.matchMedia(QUERY);
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+const getPointerSnapshot = () => window.matchMedia(QUERY).matches;
+const getServerSnapshot = () => false;
 
 export default function CustomCursor() {
   const dotRef  = useRef<HTMLDivElement>(null);
@@ -8,8 +19,10 @@ export default function CustomCursor() {
   const pos     = useRef({ x: -100, y: -100 });
   const ring    = useRef({ x: -100, y: -100 });
   const rafRef  = useRef<number>(0);
+  const enabled = useSyncExternalStore(subscribePointer, getPointerSnapshot, getServerSnapshot);
 
   useEffect(() => {
+    if (!enabled) return;
     const onMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
     };
@@ -63,7 +76,9 @@ export default function CustomCursor() {
       observer.disconnect();
       cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <>

@@ -22,7 +22,7 @@ export default function Footer() {
             />
           </div>
           <p style={{ color: "#aaa", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", maxWidth: "none" }}>
-            Custom websites and automation workflows for businesses worldwide.
+            Custom websites and automation workflows for businesses worldwide. Website designed by Sean Matthee
           </p>
           <div style={{ display: "flex", gap: "16px" }}>
             <a
@@ -100,7 +100,7 @@ export default function Footer() {
           </h4>
           <address style={{ fontStyle: "normal" }}>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
-              <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>seanmatthee@auto-ascent.us</li>
+              <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>seanmatthee91@gmail.com</li>
               <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Centurion, South Africa</li>
               <li style={{ color: "#aaa", fontSize: "16px", fontFamily: "var(--font-jakarta)" }}>Serving clients worldwide, remotely</li>
             </ul>

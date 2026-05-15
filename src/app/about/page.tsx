@@ -52,7 +52,7 @@ export default function AboutPage() {
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "customer service",
-              email: "seanmatthee@auto-ascent.us",
+              email: "seanmatthee91@gmail.com",
             },
           }),
         }}

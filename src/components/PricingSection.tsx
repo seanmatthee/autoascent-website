@@ -7,7 +7,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const plans = [
   {
     name: "Landing Page",
-    price: "From $200",
+    price: "From R2,000",
     cadence: "Starting price",
     features: [
       "Custom design (no templates)",
@@ -20,7 +20,7 @@ const plans = [
   },
   {
     name: "Full Website",
-    price: "From $800",
+    price: "From R10,000",
     cadence: "Starting price",
     features: [
       "Everything in Landing Page",
@@ -33,7 +33,7 @@ const plans = [
   },
   {
     name: "Monthly Retainer",
-    price: "$100",
+    price: "R500",
     cadence: "per month",
     features: [
       "Ongoing Zapier automation",
@@ -279,7 +279,7 @@ export default function PricingSection() {
                   textAlign: "left",
                 }}
               >
-                Prices in USD. Every project is scoped on a free discovery call — final price confirmed before work begins.
+                Prices in ZAR. Every project is scoped on a free discovery call — final price confirmed before work begins.
               </p>
             </div>
             <Link

@@ -52,7 +52,7 @@ export default function Navbar() {
 
         {/* Email — true centre */}
         <a
-          href="mailto:seanmatthee@auto-ascent.us"
+          href="mailto:seanmatthee91@gmail.com"
           className="hidden md:flex"
           style={{
             fontFamily: "var(--font-outfit)",
@@ -70,7 +70,7 @@ export default function Navbar() {
           onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.75"; }}
           onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
         >
-          seanmatthee@auto-ascent.us
+          seanmatthee91@gmail.com
         </a>
 
         {/* Nav links + CTA — right */}
@@ -150,7 +150,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <a
-                href="mailto:seanmatthee@auto-ascent.us"
+                href="mailto:seanmatthee91@gmail.com"
                 style={{
                   fontFamily: "var(--font-outfit)",
                   fontWeight: 700,
@@ -162,7 +162,7 @@ export default function Navbar() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                seanmatthee@auto-ascent.us
+                seanmatthee91@gmail.com
               </a>
               <Link
                 href="/contact"

@@ -32,8 +32,8 @@ const contactItems = [
   {
     icon: <Mail size={18} />,
     label: "Email",
-    value: "seanmatthee@auto-ascent.us",
-    href: "mailto:seanmatthee@auto-ascent.us",
+    value: "seanmatthee91@gmail.com",
+    href: "mailto:seanmatthee91@gmail.com",
   },
   {
     icon: <MessageCircle size={18} />,
@@ -79,7 +79,7 @@ export default function ContactPage() {
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "customer service",
-              email: "seanmatthee@auto-ascent.us",
+              email: "seanmatthee91@gmail.com",
             },
           }),
         }}

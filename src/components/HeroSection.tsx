@@ -7,9 +7,6 @@ import Button from "@/components/ui/Button";
 
 const ROTATING_WORDS = ["Websites", "Automations", "Integrations", "Workflows", "AI Systems"];
 
-const AVAILABILITY_COUNT = 2;
-const AVAILABILITY_MONTH = "May 2026";
-
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
@@ -134,36 +131,6 @@ export default function HeroSection() {
         >
           We build custom websites and Zapier automation workflows — everything your business needs to look professional and run on autopilot.
         </motion.p>
-
-        <motion.div {...fade(0.28)} style={{ display: "flex", justifyContent: "center", marginBottom: "24px" }}>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "#f0fdf4",
-              border: "1.5px solid #63CF6F",
-              borderRadius: "999px",
-              padding: "6px 16px",
-              fontFamily: "var(--font-jakarta)",
-              fontSize: "14px",
-              color: "#3D3D3D",
-              fontWeight: 500,
-            }}
-          >
-            <span
-              style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                background: "#63CF6F",
-                display: "inline-block",
-                flexShrink: 0,
-              }}
-            />
-            Currently accepting {AVAILABILITY_COUNT} new clients for {AVAILABILITY_MONTH}
-          </div>
-        </motion.div>
 
         <motion.div
           {...fade(0.32)}

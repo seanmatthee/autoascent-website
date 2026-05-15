@@ -183,7 +183,7 @@ export default function PrivacyPage() {
         </ul>
         <p style={p}>
           To exercise any of these rights, contact us at{" "}
-          <a href="mailto:seanmatthee@auto-ascent.us" style={link}>seanmatthee@auto-ascent.us</a>.{" "}
+          <a href="mailto:seanmatthee91@gmail.com" style={link}>seanmatthee91@gmail.com</a>.{" "}
           We will respond within 30 days.
         </p>
 
@@ -259,7 +259,7 @@ export default function PrivacyPage() {
             gap: "4px",
           }}
         >
-          <div><strong>Email:</strong>{" "}<a href="mailto:seanmatthee@auto-ascent.us" style={link}>seanmatthee@auto-ascent.us</a></div>
+          <div><strong>Email:</strong>{" "}<a href="mailto:seanmatthee91@gmail.com" style={link}>seanmatthee91@gmail.com</a></div>
           <div><strong>Business:</strong> AutoAscent by Sean Matthee</div>
           <div><strong>Address:</strong> Centurion, Gauteng, South Africa</div>
         </div>

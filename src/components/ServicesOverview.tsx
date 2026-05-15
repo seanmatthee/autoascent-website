@@ -31,7 +31,7 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section id="services" aria-label="Zapier Automation Services" style={{ padding: "100px 24px", background: "#fff" }}>
+    <section id="services" aria-label="Zapier Automation Services" style={{ padding: "40px 24px 100px", background: "#fff" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <AnimatedSection>
           <div style={{ marginBottom: "56px" }}>

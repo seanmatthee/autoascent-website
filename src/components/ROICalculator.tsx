@@ -7,19 +7,19 @@ import SectionLabel from "@/components/ui/SectionLabel";
 
 export default function ROICalculator() {
   const [hoursPerWeek, setHoursPerWeek] = useState(15);
-  const [hourlyRate, setHourlyRate]     = useState(35);
+  const [hourlyRate, setHourlyRate]     = useState(650);
 
   const results = useMemo(() => {
     const annualHours = hoursPerWeek * 52;
     const annualCost  = annualHours * hourlyRate;
     const savings     = Math.round(annualCost * 0.8);
     const savedHours  = Math.round(annualHours * 0.8);
-    const roiMonths   = savings > 0 ? Math.max(1, Math.round((200 / (savings / 12)) * 10) / 10) : 0;
+    const roiMonths   = savings > 0 ? Math.max(1, Math.round((3500 / (savings / 12)) * 10) / 10) : 0;
     return { annualCost, savings, savedHours, roiMonths, annualHours };
   }, [hoursPerWeek, hourlyRate]);
 
   const fmt = (n: number) =>
-    new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
+    new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: 0 }).format(n);
 
   return (
     <section style={{ padding: "100px 24px", background: "#F5F5F5" }}>
@@ -116,14 +116,14 @@ export default function ROICalculator() {
                     Your team&apos;s hourly rate
                   </label>
                   <span style={{ fontFamily: "var(--font-outfit)", fontWeight: 800, fontSize: "24px", color: "#63CF6F", letterSpacing: "-0.02em" }}>
-                    ${hourlyRate}
+                    R{hourlyRate}
                   </span>
                 </div>
                 <input
                   type="range"
-                  min={10}
-                  max={150}
-                  step={5}
+                  min={100}
+                  max={3000}
+                  step={50}
                   value={hourlyRate}
                   onChange={(e) => setHourlyRate(Number(e.target.value))}
                   style={{
@@ -131,13 +131,13 @@ export default function ROICalculator() {
                     height: "6px",
                     borderRadius: "3px",
                     appearance: "none",
-                    background: `linear-gradient(to right, #63CF6F ${((hourlyRate - 10) / 140) * 100}%, #E5E7EB ${((hourlyRate - 10) / 140) * 100}%)`,
+                    background: `linear-gradient(to right, #63CF6F ${((hourlyRate - 100) / 2900) * 100}%, #E5E7EB ${((hourlyRate - 100) / 2900) * 100}%)`,
                     outline: "none",
                     cursor: "pointer",
                   }}
                 />
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "6px", fontFamily: "var(--font-jakarta)", fontSize: "12px", color: "#888" }}>
-                  <span>$10/hr</span><span>$150/hr</span>
+                  <span>R100/hr</span><span>R3,000/hr</span>
                 </div>
               </div>
             </div>

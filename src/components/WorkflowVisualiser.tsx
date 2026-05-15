@@ -39,8 +39,9 @@ function Connector({ active, completed }: { active: boolean; completed: boolean 
   return (
     <div
       style={{
-        flex: "0 0 40px",
-        height: "2px",
+        flex: "0 0 36px",
+        width: "2px",
+        height: "36px",
         background: completed || active ? "#63CF6F" : "#E5E7EB",
         position: "relative",
         alignSelf: "center",
@@ -51,28 +52,28 @@ function Connector({ active, completed }: { active: boolean; completed: boolean 
       <div
         style={{
           position: "absolute",
-          right: -1,
-          top: "50%",
-          transform: "translateY(-50%)",
+          bottom: -1,
+          left: "50%",
+          transform: "translateX(-50%)",
           width: 0,
           height: 0,
-          borderTop: "5px solid transparent",
-          borderBottom: "5px solid transparent",
-          borderLeft: `6px solid ${completed || active ? "#63CF6F" : "#E5E7EB"}`,
-          transition: "border-left-color 0.4s ease",
+          borderLeft: "5px solid transparent",
+          borderRight: "5px solid transparent",
+          borderTop: `6px solid ${completed || active ? "#63CF6F" : "#E5E7EB"}`,
+          transition: "border-top-color 0.4s ease",
         }}
       />
       <AnimatePresence>
         {active && (
           <motion.div
             key="dot"
-            initial={{ left: 0, opacity: 1 }}
-            animate={{ left: "100%", opacity: 1 }}
+            initial={{ top: 0, opacity: 1 }}
+            animate={{ top: "100%", opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: STEP_MS / 1000, ease: "linear" }}
             style={{
               position: "absolute",
-              top: "50%",
+              left: "50%",
               width: 10,
               height: 10,
               borderRadius: "50%",
@@ -108,8 +109,8 @@ function Node({
         background: active ? "#F0FDF4" : completed ? "#FAFFFE" : "#fff",
         border: active ? "2px solid #63CF6F" : completed ? "1.5px solid #BBF7D0" : "1.5px solid #E5E7EB",
         borderRadius: "14px",
-        padding: "16px 14px",
-        width: "150px",
+        padding: "16px 18px",
+        width: "240px",
         flexShrink: 0,
         position: "relative",
         transition: "background 0.35s ease, border-color 0.35s ease, transform 0.25s ease",
@@ -261,7 +262,7 @@ export default function WorkflowVisualiser() {
   }, []);
 
   return (
-    <section style={{ padding: "100px 24px", background: "#fff", overflow: "hidden" }}>
+    <section style={{ padding: "100px 24px 40px", background: "#fff", overflow: "hidden" }}>
       <style>{`
         @keyframes wv-spin  { to { transform: rotate(360deg); } }
         @keyframes wv-pulse { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(2); } }
@@ -307,7 +308,6 @@ export default function WorkflowVisualiser() {
               border: "1.5px solid #E5E7EB",
               borderRadius: "20px",
               padding: "40px 32px 36px",
-              overflowX: "auto",
             }}
           >
             <div
@@ -384,9 +384,9 @@ export default function WorkflowVisualiser() {
               </button>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", minWidth: "min-content", margin: "0 auto" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
               {STEPS.map((step, i) => (
-                <div key={step.id} style={{ display: "flex", alignItems: "center" }}>
+                <div key={step.id} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                   <Node step={step} active={active === i} completed={completed.has(i)} index={i} />
                   {i < STEPS.length - 1 && (
                     <Connector active={active === i} completed={completed.has(i) && active !== i} />
