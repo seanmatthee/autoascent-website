@@ -18,8 +18,12 @@ export default function ROICalculator() {
     return { annualCost, savings, savedHours, roiMonths, annualHours };
   }, [hoursPerWeek, hourlyRate]);
 
-  const fmt = (n: number) =>
-    new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: 0 }).format(n);
+  const fmt = (n: number) => {
+    const rounded = Math.round(n);
+    const sign = rounded < 0 ? "-" : "";
+    const grouped = Math.abs(rounded).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return `${sign}R ${grouped}`;
+  };
 
   return (
     <section style={{ padding: "100px 24px", background: "#F5F5F5" }}>

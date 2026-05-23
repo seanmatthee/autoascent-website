@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Analytics } from "@vercel/analytics/next";
 import PrivacyBanner from "@/components/PrivacyBanner";
-import CustomCursor from "@/components/CustomCursor";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -110,8 +109,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${outfit.variable} ${jakarta.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://va.vercel-scripts.com" />
+      </head>
       <body className="min-h-screen flex flex-col">
-        <CustomCursor />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

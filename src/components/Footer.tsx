@@ -15,10 +15,10 @@ export default function Footer() {
             <Image
               src="/logo-black.png"
               alt="AutoAscent"
-              width={160}
-              height={40}
+              width={2560}
+              height={608}
               quality={85}
-              style={{ display: "block" }}
+              style={{ display: "block", height: 40, width: "auto" }}
             />
           </div>
           <p style={{ color: "#aaa", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", maxWidth: "none" }}>
@@ -65,12 +65,11 @@ export default function Footer() {
               { label: "What We Build",   href: "/what-we-build" },
               { label: "Services",         href: "/#services" },
               { label: "About Us",         href: "/about" },
-              { label: "See Our Work",     href: "/showcase" },
               { label: "Contact Us",       href: "/contact" },
               { label: "Book a Free Call", href: "/contact" },
               { label: "Privacy Policy",   href: "/privacy" },
             ].map((link) => (
-              <li key={link.href}>
+              <li key={link.label}>
                 <Link
                   href={link.href}
                   style={{ color: "#aaa", textDecoration: "none", fontSize: "16px", cursor: "pointer", display: "inline-block", minHeight: "44px", lineHeight: "44px" }}

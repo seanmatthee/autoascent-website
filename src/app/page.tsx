@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/HeroSection";
 import ValueProposition from "@/components/ValueProposition";
 import ServicesOverview from "@/components/ServicesOverview";
 import HomeCTA from "@/components/HomeCTA";
 import InteractiveDivider from "@/components/InteractiveDivider";
-import FounderTeaser from "@/components/FounderTeaser";
-import PricingSection from "@/components/PricingSection";
-import ProcessTimeline from "@/components/ProcessTimeline";
-import WorkflowVisualiser from "@/components/WorkflowVisualiser";
-import ROICalculator from "@/components/ROICalculator";
-import IntegrationLogoWall from "@/components/IntegrationLogoWall";
+
+// Below-fold — deferred so their JS doesn't block initial paint
+const FounderTeaser     = dynamic(() => import("@/components/FounderTeaser"));
+const PricingSection    = dynamic(() => import("@/components/PricingSection"));
+const ProcessTimeline   = dynamic(() => import("@/components/ProcessTimeline"));
+const WorkflowVisualiser = dynamic(() => import("@/components/WorkflowVisualiser"));
+const ROICalculator     = dynamic(() => import("@/components/ROICalculator"));
+const IntegrationLogoWall = dynamic(() => import("@/components/IntegrationLogoWall"));
 
 export const metadata: Metadata = {
   title: { absolute: "Web Design & Automation for Businesses Worldwide | AutoAscent" },

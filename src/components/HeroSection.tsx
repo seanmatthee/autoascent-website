@@ -2,8 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+
+const WebGLShader = dynamic(
+  () => import("@/components/ui/web-gl-shader").then((m) => ({ default: m.WebGLShader })),
+  { ssr: false }
+);
 
 const ROTATING_WORDS = ["Websites", "Automations", "Integrations", "Workflows", "AI Systems"];
 
@@ -26,174 +32,196 @@ export default function HeroSection() {
   return (
     <section
       style={{
+        position: "relative",
         minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#fff",
-        backgroundImage: "radial-gradient(circle, #00000008 1px, transparent 1px)",
-        backgroundSize: "28px 28px",
-        padding: "80px 24px",
-        textAlign: "center",
+        overflow: "hidden",
+        background: "#000",
       }}
     >
-      <div style={{ maxWidth: "860px", width: "100%" }}>
-        {/* Logo mark above wordmark */}
-        <motion.div {...fade(0)} style={{ display: "flex", justifyContent: "center", marginBottom: "12px" }}>
-          <Image
-            src="/logo-white.png"
-            alt="AutoAscent — Web Design & Automation"
-            width={140}
-            height={35}
-            priority
-            quality={85}
-          />
-        </motion.div>
+      {/* Animated WebGL shader background */}
+      <WebGLShader />
 
-        {/* Brand wordmark */}
-        <motion.div
-          {...fade(0.08)}
-          style={{
-            fontFamily: "var(--font-outfit)",
-            fontSize: "clamp(52px, 9vw, 110px)",
-            fontWeight: 800,
-            color: "#0F0F0F",
-            letterSpacing: "-0.04em",
-            lineHeight: 1,
-            marginBottom: "16px",
-          }}
-        >
-          Auto<span style={{ color: "#63CF6F" }}>Ascent</span>
-        </motion.div>
+      {/* Subtle dark vignette to keep text readable */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.15) 100%)",
+          pointerEvents: "none",
+        }}
+      />
 
-        {/* Headline */}
-        <motion.h1
-          {...fade(0.16)}
+      {/* Foreground content */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          padding: "80px 24px 200px",
+        }}
+      >
+        <div
           style={{
-            fontFamily: "var(--font-outfit)",
-            fontWeight: 800,
-            fontSize: "clamp(28px, 5vw, 52px)",
-            lineHeight: 1.1,
-            letterSpacing: "-0.025em",
-            color: "#000",
-            marginBottom: "8px",
+            maxWidth: "1280px",
+            width: "100%",
+            margin: "0 auto",
           }}
+          className="hero-grid"
         >
-          We Build{" "}
-          <span
-            style={{
-              display: "inline-block",
-              minWidth: "280px",
-              position: "relative",
-              verticalAlign: "bottom",
-            }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={wordIndex}
-                initial={{ opacity: 0, y: 16, clipPath: "inset(0 0 100% 0)" }}
-                animate={{ opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }}
-                exit={{ opacity: 0, y: -16, clipPath: "inset(100% 0 0 0)" }}
-                transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-                style={{ color: "#63CF6F", display: "inline-block" }}
+          {/* Full-width text column */}
+          <div style={{ textAlign: "left" }}>
+            <motion.div {...fade(0)} style={{ display: "flex", justifyContent: "flex-start", marginBottom: "14px" }}>
+              <Image
+                src="/logo-black.png"
+                alt="AutoAscent — Web Design & Automation"
+                width={2560}
+                height={608}
+                priority
+                quality={85}
+                style={{ height: 30, width: "auto" }}
+              />
+            </motion.div>
+
+            {/* Brand wordmark */}
+            <motion.div
+              {...fade(0.08)}
+              style={{
+                fontFamily: "var(--font-outfit)",
+                fontSize: "clamp(52px, 8vw, 96px)",
+                fontWeight: 800,
+                color: "#FFFFFF",
+                letterSpacing: "-0.04em",
+                lineHeight: 1,
+                marginBottom: "22px",
+              }}
+            >
+              Auto<span style={{ color: "#63CF6F" }}>Ascent</span>
+            </motion.div>
+
+            <motion.h1
+              {...fade(0.16)}
+              style={{
+                fontFamily: "var(--font-outfit)",
+                fontWeight: 800,
+                fontSize: "clamp(40px, 7vw, 92px)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.025em",
+                color: "#FFFFFF",
+                marginBottom: "10px",
+              }}
+            >
+              We Build{" "}
+              <span
+                style={{
+                  display: "inline-block",
+                  minWidth: "min(420px, 38vw)",
+                  position: "relative",
+                  verticalAlign: "bottom",
+                }}
               >
-                {ROTATING_WORDS[wordIndex]}
-              </motion.span>
-            </AnimatePresence>
-          </span>
-          <br />
-          for Businesses Worldwide
-        </motion.h1>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={wordIndex}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ color: "#63CF6F", display: "inline-block" }}
+                  >
+                    {ROTATING_WORDS[wordIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+              <br />
+              for Businesses Worldwide
+            </motion.h1>
 
-        <motion.p
-          {...fade(0.20)}
-          style={{
-            fontFamily: "var(--font-outfit)",
-            fontWeight: 700,
-            fontSize: "clamp(18px, 3vw, 28px)",
-            color: "#3D3D3D",
-            letterSpacing: "-0.01em",
-            margin: "8px 0 24px",
-          }}
-        >
-          Build Smarter. Grow Faster.
-        </motion.p>
+            <motion.p
+              {...fade(0.2)}
+              style={{
+                fontFamily: "var(--font-outfit)",
+                fontWeight: 700,
+                fontSize: "clamp(18px, 2.4vw, 26px)",
+                color: "#E5E5E5",
+                letterSpacing: "-0.01em",
+                margin: "10px 0 20px",
+              }}
+            >
+              Build Smarter. Grow Faster.
+            </motion.p>
 
-        <motion.p
-          {...fade(0.24)}
-          style={{
-            fontSize: "clamp(17px, 2vw, 20px)",
-            color: "#555",
-            lineHeight: 1.7,
-            maxWidth: "600px",
-            margin: "0 auto 24px",
-          }}
-        >
-          We build custom websites and Zapier automation workflows — everything your business needs to look professional and run on autopilot.
-        </motion.p>
+            <motion.p
+              {...fade(0.24)}
+              style={{
+                fontSize: "clamp(16px, 1.6vw, 19px)",
+                color: "rgba(255,255,255,0.7)",
+                lineHeight: 1.65,
+                maxWidth: "560px",
+                margin: "0 0 28px",
+              }}
+            >
+              We build custom websites and Zapier automation workflows — everything your business needs to look professional and run on autopilot.
+            </motion.p>
 
-        <motion.div
-          {...fade(0.32)}
-          style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}
-        >
-          <Button label="Get a Free Consultation" href="/contact" variant="primary" />
-          <button
-            onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              fontFamily: "var(--font-outfit)",
-              fontWeight: 600,
-              fontSize: "16px",
-              color: "#000",
-              padding: "0",
-            }}
-          >
-            See how it works →
-          </button>
-        </motion.div>
+            <motion.div
+              {...fade(0.32)}
+              style={{ display: "flex", gap: "20px", flexWrap: "wrap", alignItems: "center" }}
+            >
+              <Button label="Get a Free Consultation" href="/contact" variant="primary" />
+              <button
+                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  fontFamily: "var(--font-outfit)",
+                  fontWeight: 600,
+                  fontSize: "16px",
+                  color: "#FFFFFF",
+                  padding: 0,
+                }}
+              >
+                See how it works →
+              </button>
+            </motion.div>
 
-        {/* 2 badges */}
-        <motion.div
-          {...fade(0.4)}
-          style={{ display: "flex", alignItems: "center", gap: "24px", marginTop: "32px", flexWrap: "wrap", justifyContent: "center" }}
-        >
-          {["Custom Web Design", "Zapier Automation", "Worldwide Clients"].map((label) => (
-            <span
-              key={label}
+            <motion.div
+              {...fade(0.4)}
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "7px",
-                fontSize: "15px",
-                fontWeight: 500,
-                color: "#555",
-                fontFamily: "var(--font-jakarta)",
+                gap: "22px",
+                marginTop: "30px",
+                flexWrap: "wrap",
               }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#63CF6F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              {label}
-            </span>
-          ))}
-        </motion.div>
+              {["Custom Web Design", "Zapier Automation", "Worldwide Clients"].map((label) => (
+                <span
+                  key={label}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "7px",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    color: "rgba(255,255,255,0.75)",
+                    fontFamily: "var(--font-jakarta)",
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#63CF6F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  {label}
+                </span>
+              ))}
+            </motion.div>
+          </div>
 
-        {/* SEO context paragraph — visible but secondary */}
-        <motion.p
-          {...fade(0.5)}
-          style={{
-            fontSize: "13px",
-            color: "#aaa",
-            maxWidth: "560px",
-            margin: "20px auto 0",
-            lineHeight: 1.6,
-            fontFamily: "var(--font-jakarta)",
-          }}
-        >
-          Based in South Africa, serving clients remotely worldwide. We build custom websites, landing pages, eCommerce stores, and Zapier automation workflows — scoped to your business and budget.
-        </motion.p>
+        </div>
       </div>
     </section>
   );

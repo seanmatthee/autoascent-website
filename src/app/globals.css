@@ -84,7 +84,3 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
-/* Custom cursor — hide native cursor sitewide */
-*, *::before, *::after {
-  cursor: none !important;
-}

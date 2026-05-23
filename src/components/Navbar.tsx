@@ -42,11 +42,11 @@ export default function Navbar() {
           <Image
             src="/logo-white.png"
             alt="AutoAscent"
-            width={180}
-            height={45}
+            width={2560}
+            height={608}
             priority
             quality={85}
-            style={{ display: "block" }}
+            style={{ display: "block", height: 45, width: "auto" }}
           />
         </Link>
 
