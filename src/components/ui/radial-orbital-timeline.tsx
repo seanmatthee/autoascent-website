@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,22 +21,29 @@ interface RadialOrbitalTimelineProps {
   timelineData: TimelineItem[];
 }
 
-const RADIUS = 200;
 // Start at the top (270°) so item 0 sits at 12 o'clock
 const ROTATION_OFFSET = 270;
 
-function getNodePosition(index: number, total: number) {
+function getNodePosition(index: number, total: number, radius: number) {
   const angle = ((index / total) * 360 + ROTATION_OFFSET) % 360;
   const radian = (angle * Math.PI) / 180;
   return {
-    x: RADIUS * Math.cos(radian),
-    y: RADIUS * Math.sin(radian),
+    x: radius * Math.cos(radian),
+    y: radius * Math.sin(radian),
   };
 }
 
 export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTimelineProps) {
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
+  const [radius, setRadius] = useState(200);
+
+  useEffect(() => {
+    const update = () => setRadius(window.innerWidth < 640 ? 120 : 200);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const openItem = (id: number) => {
     setExpandedItems((prev) => {
@@ -102,10 +109,13 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
           </div>
 
           {/* Orbit ring */}
-          <div className="absolute w-[408px] h-[408px] rounded-full border border-white/10" />
+          <div
+            className="absolute rounded-full border border-white/10"
+            style={{ width: radius * 2 + 8, height: radius * 2 + 8 }}
+          />
 
           {timelineData.map((item, index) => {
-            const pos = getNodePosition(index, timelineData.length);
+            const pos = getNodePosition(index, timelineData.length, radius);
             const isExpanded = expandedItems[item.id];
             const isRelated = isRelatedToActive(item.id);
             const Icon = item.icon;
