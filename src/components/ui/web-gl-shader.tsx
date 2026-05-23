@@ -87,9 +87,9 @@ export function WebGLShader({ className }: { className?: string }) {
       refs.uniforms = {
         resolution: { value: [width, height] },
         time: { value: 0.0 },
-        xScale: { value: 1.0 },
-        yScale: { value: 0.5 },
-        distortion: { value: 0.05 },
+        xScale: { value: 1.2 },
+        yScale: { value: 0.9 },
+        distortion: { value: 0.08 },
       };
 
       const position = [
@@ -119,7 +119,7 @@ export function WebGLShader({ className }: { className?: string }) {
     };
 
     const animate = () => {
-      if (refs.uniforms) refs.uniforms.time.value += 0.01;
+      if (refs.uniforms) refs.uniforms.time.value += 0.025;
       if (refs.renderer && refs.scene && refs.camera) {
         refs.renderer.render(refs.scene, refs.camera);
       }

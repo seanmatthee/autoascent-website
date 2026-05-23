@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,24 +21,22 @@ interface RadialOrbitalTimelineProps {
   timelineData: TimelineItem[];
 }
 
+const RADIUS = 200;
+// Start at the top (270°) so item 0 sits at 12 o'clock
+const ROTATION_OFFSET = 270;
+
+function getNodePosition(index: number, total: number) {
+  const angle = ((index / total) * 360 + ROTATION_OFFSET) % 360;
+  const radian = (angle * Math.PI) / 180;
+  return {
+    x: RADIUS * Math.cos(radian),
+    y: RADIUS * Math.sin(radian),
+  };
+}
+
 export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTimelineProps) {
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
-  const [rotationAngle, setRotationAngle] = useState<number>(0);
-  const [autoRotate, setAutoRotate] = useState<boolean>(true);
-  const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const orbitRef = useRef<HTMLDivElement>(null);
-  const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
-
-  const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === containerRef.current || e.target === orbitRef.current) {
-      setExpandedItems({});
-      setActiveNodeId(null);
-      setPulseEffect({});
-      setAutoRotate(true);
-    }
-  };
 
   const openItem = (id: number) => {
     setExpandedItems((prev) => {
@@ -48,21 +46,11 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
       return newState;
     });
     setActiveNodeId(id);
-    setAutoRotate(false);
-
-    const related = getRelatedItems(id);
-    const pulse: Record<number, boolean> = {};
-    related.forEach((rid) => { pulse[rid] = true; });
-    setPulseEffect(pulse);
-
-    centerViewOnNode(id);
   };
 
   const closeItem = (id: number) => {
     setExpandedItems((prev) => ({ ...prev, [id]: false }));
     setActiveNodeId(null);
-    setAutoRotate(true);
-    setPulseEffect({});
   };
 
   const handleNodeClick = (e: React.MouseEvent, id: number) => {
@@ -74,31 +62,9 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
     }
   };
 
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (autoRotate) {
-      timer = setInterval(() => {
-        setRotationAngle((prev) => Number(((prev + 0.3) % 360).toFixed(3)));
-      }, 50);
-    }
-    return () => clearInterval(timer);
-  }, [autoRotate]);
-
-  const centerViewOnNode = (nodeId: number) => {
-    const nodeIndex = timelineData.findIndex((item) => item.id === nodeId);
-    const targetAngle = (nodeIndex / timelineData.length) * 360;
-    setRotationAngle(270 - targetAngle);
-  };
-
-  const calculateNodePosition = (index: number, total: number) => {
-    const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 200;
-    const radian = (angle * Math.PI) / 180;
-    const x = radius * Math.cos(radian);
-    const y = radius * Math.sin(radian);
-    const zIndex = Math.round(100 + 50 * Math.cos(radian));
-    const opacity = Math.max(0.4, Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(radian)) / 2)));
-    return { x, y, angle, zIndex, opacity };
+  const handleContainerClick = () => {
+    setExpandedItems({});
+    setActiveNodeId(null);
   };
 
   const getRelatedItems = (itemId: number) =>
@@ -121,13 +87,11 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
   return (
     <div
       className="w-full h-[600px] flex items-center justify-center bg-black overflow-hidden"
-      ref={containerRef}
       onClick={handleContainerClick}
     >
       <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
         <div
           className="absolute w-full h-full flex items-center justify-center"
-          ref={orbitRef}
           style={{ perspective: "1000px" }}
         >
           {/* Centre orb */}
@@ -141,37 +105,21 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
           <div className="absolute w-[408px] h-[408px] rounded-full border border-white/10" />
 
           {timelineData.map((item, index) => {
-            const pos = calculateNodePosition(index, timelineData.length);
+            const pos = getNodePosition(index, timelineData.length);
             const isExpanded = expandedItems[item.id];
             const isRelated = isRelatedToActive(item.id);
-            const isPulsing = pulseEffect[item.id];
             const Icon = item.icon;
 
             return (
               <div
                 key={item.id}
-                ref={(el) => { nodeRefs.current[item.id] = el; }}
-                className="absolute transition-all duration-700 cursor-pointer"
+                className="absolute transition-all duration-300 cursor-pointer"
                 style={{
                   transform: `translate(${pos.x}px, ${pos.y}px)`,
-                  zIndex: isExpanded ? 200 : pos.zIndex,
-                  opacity: isExpanded ? 1 : pos.opacity,
+                  zIndex: isExpanded ? 200 : 100,
                 }}
                 onClick={(e) => handleNodeClick(e, item.id)}
               >
-                {/* Energy glow — pointer-events: none so it never intercepts clicks */}
-                <div
-                  className={`absolute rounded-full ${isPulsing ? "animate-pulse" : ""}`}
-                  style={{
-                    background: "radial-gradient(circle, rgba(99,207,111,0.25) 0%, transparent 70%)",
-                    width: `${item.energy * 0.5 + 40}px`,
-                    height: `${item.energy * 0.5 + 40}px`,
-                    left: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
-                    top: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
-                    pointerEvents: "none",
-                  }}
-                />
-
                 {/* Node circle */}
                 <div
                   className={`
@@ -190,8 +138,8 @@ export default function RadialOrbitalTimeline({ timelineData }: RadialOrbitalTim
 
                 {/* Label */}
                 <div
-                  className={`absolute top-12 whitespace-nowrap text-xs font-semibold tracking-wider transition-all duration-300 ${isExpanded ? "text-white scale-125" : "text-white/70"}`}
-                  style={{ left: "50%", transform: `translateX(-50%) ${isExpanded ? "scale(1.25)" : ""}` }}
+                  className={`absolute top-12 whitespace-nowrap text-xs font-semibold tracking-wider transition-all duration-300 ${isExpanded ? "text-white" : "text-white/70"}`}
+                  style={{ left: "50%", transform: "translateX(-50%)" }}
                 >
                   {item.title}
                 </div>
