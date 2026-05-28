@@ -24,7 +24,7 @@ const plans = [
     cadence: "Starting price",
     features: [
       "Everything in Landing Page",
-      "Up to 6 pages",
+      "Up to 4 pages",
       "Blog or portfolio section",
       "Google Analytics setup",
       "2 rounds of revisions",
