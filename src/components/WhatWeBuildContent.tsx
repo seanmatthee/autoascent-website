@@ -42,10 +42,10 @@ const WEB_TIERS: Tier[] = [
     tag: "Starting price",
     popular: true,
     description:
-      "A complete business website up to 6 pages — mobile-first, SEO-ready, and built to represent your brand properly at every screen size.",
+      "A complete business website up to 4 pages — mobile-first, SEO-ready, and built to represent your brand properly at every screen size.",
     features: [
       "Everything in Landing Page",
-      "Up to 6 pages",
+      "Up to 4 pages",
       "Blog or portfolio section",
       "Google Analytics setup",
       "2 rounds of revisions",
